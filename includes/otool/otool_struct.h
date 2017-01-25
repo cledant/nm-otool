@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   otool_includes.h                                   :+:      :+:    :+:   */
+/*   otool_struct.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/25 13:15:45 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/25 18:42:09 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/25 18:41:33 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/25 18:44:20 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OTOOL_INCLUDES_H
-# define OTOOL_INCLUDES_H
+#ifndef OTOOL_STRUCT_H
+# define OTOOL_STRUCT_H
 
-# include <sys/mman.h>
-# include <fcntl.h>
-# include <sys/stat.h>
-# include <mach-o/nlist.h>
-# include <mach-o/loader.h>
-# include <mach-o/fat.h>
-# include "libft.h"
+typedef enum		e_init_error
+{
+	ERR_ARGC, ERR_OPEN, ERR_FSTAT, ERR_MMAP, ERR_MUNMAP, ERR_CLOSE,
+}					t_init_error;
 
 #endif

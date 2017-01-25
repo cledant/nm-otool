@@ -6,11 +6,11 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 13:11:43 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/25 13:11:46 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/25 18:41:05 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OTOOL_DEFINES_H
-# define #OTOOL_DEFINES_H
+# define OTOOL_DEFINES_H
 
 #endif
