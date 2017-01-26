@@ -6,13 +6,13 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 11:37:18 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/26 17:36:31 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/26 20:17:38 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "otool.h"
 
-int		otool_error_handler(const t_init_error err)
+int		otool_error_handler(const t_error err)
 {
 	if (err == ERR_ARGC)
 		ft_putendl("ft_otool : argument number invalid");
@@ -30,7 +30,7 @@ int		otool_error_handler(const t_init_error err)
 		ft_putendl("ft_otool : error invalid file");
 	else if (err == ERR_UNKNOWN)
 		ft_putendl("ft_otool : error file type unknown");
-	else if (err == ERR_MEMORY)
+	else if (err == ERR_MEM)
 		ft_putendl("ft_otool : not enough memory");
 	return (OTOOL_FAIL);
 }

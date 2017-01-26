@@ -1,19 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   otool_defines.h                                    :+:      :+:    :+:   */
+/*   otool_itoa_base_stack.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/25 13:11:43 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/26 20:12:22 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/26 20:56:40 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/26 20:58:57 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OTOOL_DEFINES_H
-# define OTOOL_DEFINES_H
+#include "otool.h"
 
-# define OTOOL_OK 0
-# define OTOOL_FAIL -1
+void	otool_itoa_base_stack(size_t num, const char *base)
+{
+	char	display[256];
+	size_t	size_base;
+	size_t	i;
 
-#endif
+	if (num == 0)
+		return (ft_putchar('0'));
+	if ((size_base = ft_strlen(base)) == 1)
+		return ;
+	ft_bzero(display, 256);
+	i = 0;
+	while (num != 0)
+	{
+		display[i] = base[num % size_base];
+		num /= size_base;
+		i++;
+	}
+	while (i != 0)
+	{
+		ft_putchar(display[i - 1]);
+		i--;
+	}
+}

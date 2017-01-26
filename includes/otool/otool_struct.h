@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:41:33 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/26 16:25:31 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/26 20:12:34 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef enum		e_error
 
 typedef enum		e_endian
 {
-	BIG_ENDIAN, LITTLE_ENDIAN,
+	BIG, LITTLE,
 }					t_endian;
 
 typedef struct		s_info

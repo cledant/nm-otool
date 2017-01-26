@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   otool_defines.h                                    :+:      :+:    :+:   */
+/*   otool_is_interval_valid.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/25 13:11:43 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/26 20:12:22 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/26 19:22:42 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/26 19:26:28 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OTOOL_DEFINES_H
-# define OTOOL_DEFINES_H
+#include "otool.h"
 
-# define OTOOL_OK 0
-# define OTOOL_FAIL -1
-
-#endif
+inline int	otool_is_interval_valid(const size_t addr, const size_t size,
+				const t_info *info)
+{
+	if (addr > info->end || addr < info->start)
+		return (OTOOL_FAIL);
+	if ((addr + size) > info->end || (addr + size) < info->start)
+		return (OTOOL_FAIL);
+	return (OTOOL_OK);
+}
