@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:03:23 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/26 20:32:57 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/26 21:49:31 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,19 @@ int		otool_start(const void *start_file, const off_t file_size)
 		return (otool_error_handler(ERR_INVALID_FILE));
 	otool_init_info(&info, start_file, file_size);
 	otool_set_endianness(&info, start_file);
-	if (*(uint32_t *)start_file == FAT_MAGIC | *(uint32_t *)start_file
+	if (info.endianness == LITTLE)
+		ft_putendl("LITTLE ENDIAN");
+	else
+		ft_putendl("BIG ENDIAN");
+	if (*(uint32_t *)start_file == FAT_MAGIC || *(uint32_t *)start_file
 			== FAT_CIGAM)
 		ft_putendl("Fat file type");
-	else if (*(uint32_t *)start_file == MH_MAGIC | *(uint32_t *)start_file
+	else if (*(uint32_t *)start_file == MH_MAGIC || *(uint32_t *)start_file
 			== MH_CIGAM)
 		otool_macho_32(&info, (struct mach_header *)start_file);
-	else if (*(uint32_t *)start_file == MH_MAGIC_64 | *(uint32_t *)start_file
+	else if (*(uint32_t *)start_file == MH_MAGIC_64 || *(uint32_t *)start_file
 			== MH_CIGAM_64)
-		ft_putendl("Mach-o 64 file type");
+		otool_macho_64(&info, (struct mach_header_64 *)start_file);
 	else
 		return (otool_error_handler(ERR_UNKNOWN));
 	return (0);
