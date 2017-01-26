@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   otool_includes.h                                   :+:      :+:    :+:   */
+/*   otool_set_endianness.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/25 13:15:45 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/26 09:59:14 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/26 17:13:05 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/26 17:15:26 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OTOOL_INCLUDES_H
-# define OTOOL_INCLUDES_H
+#include "otool.h"
 
-# include <sys/mman.h>
-# include <fcntl.h>
-# include <sys/stat.h>
-# include <mach-o/nlist.h>
-# include <mach-o/loader.h>
-# include <mach-o/fat.h>
-# include <mach-o/ranlib.h>
-# include "libft.h"
-
-#endif
+void	otool_set_endianness(t_info *info, const uint32_t *start_file)
+{
+	if (*start_file = MH_CIGAM || *start_file == MH_CIGAM_64 || 
+			*start_file == FAT_CIGAM)
+		info->endianness = LITTLE_ENDIAN;
+}

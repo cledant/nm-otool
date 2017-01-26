@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   otool_includes.h                                   :+:      :+:    :+:   */
+/*   otool_is_mem_addr_valid.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/25 13:15:45 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/26 09:59:14 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/26 17:11:22 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/26 17:11:23 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OTOOL_INCLUDES_H
-# define OTOOL_INCLUDES_H
+#include "otool.h"
 
-# include <sys/mman.h>
-# include <fcntl.h>
-# include <sys/stat.h>
-# include <mach-o/nlist.h>
-# include <mach-o/loader.h>
-# include <mach-o/fat.h>
-# include <mach-o/ranlib.h>
-# include "libft.h"
-
-#endif
+inline int	otool_is_mem_addr_valid(const t_info *info, const size_t addr)
+{
+	if (addr > info->end || addr < info->start)
+		return (OTOOL_FAIL);
+	return (OTOOL_OK);
+}

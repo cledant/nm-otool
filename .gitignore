@@ -24,6 +24,10 @@ a.out
 ft_nm
 ft_otool
 
+# FOLDERS #
+###########
+test
+
 # Debug #
 #########
 *.dSYM
