@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   otool_itoa_base_stack.c                            :+:      :+:    :+:   */
+/*   otool_display_text_addr_64.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/26 20:56:40 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/27 16:45:39 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/27 17:16:13 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/27 17:16:29 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "otool.h"
 
-void	otool_itoa_base_stack(const unsigned char num, const char *base)
+void	otool_display_text_addr_64(const uint64_t num, const uint64_t offset,
+			const char *base)
 {
 	char			display[16];
 	size_t			size_base;
 	size_t			i;
-	unsigned char	cpy_num;
+	uint64_t		cpy_num;
 
-	cpy_num = num;
+	cpy_num = num + offset;
 	if ((size_base = ft_strlen(base)) == 1)
 		return ;
-	if (cpy_num == 0)
-		return (ft_putstr("00"));
-	if (cpy_num < size_base)
-		ft_putchar('0');
-	ft_bzero(display, 16);
+	ft_memset(display, '0', 16);
 	i = 0;
 	while (cpy_num != 0)
 	{
@@ -34,9 +31,11 @@ void	otool_itoa_base_stack(const unsigned char num, const char *base)
 		cpy_num /= size_base;
 		i++;
 	}
-	while (i != 0)
+	i = 0;
+	while (i < 16)
 	{
-		ft_putchar(display[i - 1]);
-		i--;
+		ft_putchar(display[15 - i]);
+		i++;
 	}
+	ft_putchar('\t');
 }

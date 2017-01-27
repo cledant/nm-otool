@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 11:37:18 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/26 20:17:38 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/27 14:33:34 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ int		otool_error_handler(const t_error err)
 		ft_putendl("ft_otool : error file type unknown");
 	else if (err == ERR_MEM)
 		ft_putendl("ft_otool : not enough memory");
+	else if (err == ERR_NAME)
+		ft_putendl("ft_otool : please enter a name");
 	return (OTOOL_FAIL);
 }

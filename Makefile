@@ -6,7 +6,7 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2017/01/27 10:13:10 by cledant          ###   ########.fr        #
+#    Updated: 2017/01/27 17:17:14 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ SRCS_NAME_OTOOL = otool.c otool_start.c otool_macho_32.c otool_error_handler.c \
 				  otool_is_mem_addr_valid.c otool_is_interval_valid.c \
 				  otool_display_section_32.c otool_display_sec_32_data.c \
 				  otool_itoa_base_stack.c otool_macho_64.c \
-				  otool_display_section_64.c otool_display_sec_64_data.c
+				  otool_display_section_64.c otool_display_sec_64_data.c \
+				  otool_display_text_addr_64.c
 
 SRCS_PATH_OTOOL = ./srcs/otool
 
