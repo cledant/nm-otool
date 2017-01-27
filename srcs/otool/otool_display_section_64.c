@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 21:23:05 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/26 21:47:30 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/27 11:45:11 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		otool_display_section_64(const struct mach_header_64 *start_header,
 			info) == OTOOL_FAIL)
 		return (OTOOL_FAIL);
 	i = 0;
-	sec = (struct section_64 *)seg + sizeof(struct segment_command_64);
+	sec = (void *)seg + sizeof(struct segment_command_64);
 	while (i < seg->nsects)  //ici
 	{
 		if (otool_is_interval_valid((size_t)sec, sizeof(struct section_64),
@@ -37,7 +37,7 @@ int		otool_display_section_64(const struct mach_header_64 *start_header,
 					sec->size, info) == OTOOL_FAIL) //ici
 				return (OTOOL_FAIL);
 		}
-		sec = sec + sizeof(struct section_64);
+		sec = (void *)sec + sizeof(struct section_64);
 		i++;
 	}
 	return (OTOOL_OK);

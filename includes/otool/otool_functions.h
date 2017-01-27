@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 13:15:00 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/26 21:33:28 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/27 11:16:01 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		otool_display_section_32(const struct mach_header *start_header,
 			const struct segment_command *seg, const t_info *info);
 int		otool_display_sec_32_data(const struct mach_header *start_header,
 			const uint32_t offset, const uint32_t size, const t_info *info);
-void	otool_itoa_base_stack(size_t num, const char *base);
+void	otool_itoa_base_stack(const unsigned char num, const char *base);
 int		otool_macho_64(const t_info *info,
 			const struct mach_header_64 *start_macho);
 int		otool_display_section_64(const struct mach_header_64 *start_header,

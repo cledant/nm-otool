@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 10:55:36 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/26 20:40:00 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/27 09:16:52 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int		otool_macho_32(const t_info *info,
 	struct load_command		*lc;
 	uint32_t				i;
 
+	ft_putendl("Macho-o 32"); //delete this
 	if (otool_is_interval_valid((size_t)start_macho, sizeof(struct mach_header),
 			info) == OTOOL_FAIL)
 		return ((otool_error_handler(ERR_INVALID_FILE)));
