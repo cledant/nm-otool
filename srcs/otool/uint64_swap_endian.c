@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   otool_set_endianness.c                             :+:      :+:    :+:   */
+/*   uint64_swap_endian.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/26 17:13:05 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/27 17:47:05 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/27 19:32:46 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/27 19:35:16 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "otool.h"
 
-inline void		otool_set_endianness(t_info *info, const uint32_t *start_file)
+uint64_t	uint64_swap_endian(uint64_t num, const t_info *info)
 {
-	if (*start_file == MH_CIGAM || *start_file == MH_CIGAM_64 || 
-			*start_file == FAT_CIGAM)
-		info->endianness = LITTLE;
+	if (info->endian == BIG)
+		return (num);
+	return (num << 56);
 }
