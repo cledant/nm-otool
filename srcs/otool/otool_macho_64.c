@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 21:15:23 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/29 13:20:13 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/29 15:23:19 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int		otool_macho_64(const t_info *info,
 			return ((otool_error_handler(ERR_INVALID_FILE)));
 		if (cvrt_u32(lc->cmd, info) == LC_SEGMENT_64)
 		{
-			if (otool_check_section_64(start_macho,
-					(void *)lc, info) == OTOOL_FAIL)
+			if (otool_check_section_64(start_macho, (void *)lc, info)
+					== OTOOL_FAIL)
 				return ((otool_error_handler(ERR_INVALID_FILE)));
 		}
 		lc = (void *)lc + cvrt_u32(lc->cmdsize, info);

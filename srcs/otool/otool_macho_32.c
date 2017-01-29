@@ -5,14 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/26 10:55:36 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/27 09:16:52 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/29 14:35:19 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/29 15:23:01 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "otool.h"
-
-// A MODIF POUR GERER L ENDIANNESS
 
 int		otool_macho_32(const t_info *info,
 			const struct mach_header *start_macho)
@@ -20,24 +18,24 @@ int		otool_macho_32(const t_info *info,
 	struct load_command		*lc;
 	uint32_t				i;
 
-	ft_putendl("Macho-o 32"); //delete this
+	ft_putendl("Mach-o 32"); //delete this
 	if (otool_is_interval_valid((size_t)start_macho, sizeof(struct mach_header),
 			info) == OTOOL_FAIL)
 		return ((otool_error_handler(ERR_INVALID_FILE)));
-	lc = (struct load_command *)start_macho + sizeof(struct mach_header);
+	lc = (void *)start_macho + sizeof(struct mach_header);
 	i = 0;
-	while (i < start_macho->ncmds)
+	while (i < cvrt_u32(start_macho->ncmds, info))
 	{
 		if (otool_is_interval_valid((size_t)lc, sizeof(struct load_command),
 				info) == OTOOL_FAIL)
 			return ((otool_error_handler(ERR_INVALID_FILE)));
-		if (lc->cmd == LC_SEGMENT)
+		if (cvrt_u32(lc->cmd, info) == LC_SEGMENT_64)
 		{
-			if (otool_display_section_32(start_macho,
-					(struct segment_command *)lc, info) == OTOOL_FAIL)
+			if (otool_check_section_32(start_macho, (void *)lc, info)
+					== OTOOL_FAIL)
 				return ((otool_error_handler(ERR_INVALID_FILE)));
 		}
-		lc = lc + lc->cmdsize; //ici
+		lc = (void *)lc + cvrt_u32(lc->cmdsize, info);
 		i++;
 	}
 	return (OTOOL_OK);

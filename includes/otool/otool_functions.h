@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 13:15:00 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/29 13:20:34 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/29 14:32:35 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,6 @@ int			otool_is_interval_valid(const size_t addr, const size_t size,
 				const t_info *info);
 void		otool_set_endianness(t_info *info, const uint32_t *start_file);
 
-int			otool_macho_32(const t_info *info,
-				const struct mach_header *start_macho);
-int			otool_display_section_32(const struct mach_header *start_header,
-				const struct segment_command *seg, const t_info *info);
-int			otool_display_sec_32_data(const struct mach_header *start_header,
-				const uint32_t offset, const uint32_t size, const t_info *info);
-
 void		otool_itoa_base_stack(const unsigned char num, const char *base);
 
 int			otool_macho_64(const t_info *info,
@@ -42,6 +35,15 @@ int			otool_display_sec_64_data(const struct mach_header_64 *start_header,
 				const struct section_64 *sec, const t_info *info);
 void		otool_display_text_addr_64(const uint64_t num,
 				const uint64_t offset, const char *base);
+
+int			otool_macho_32(const t_info *info,
+				const struct mach_header *start_macho);
+int			otool_check_section_32(const struct mach_header *start_header,
+				const struct segment_command *seg, const t_info *info);
+int			otool_display_sec_32_data(const struct mach_header *start_header,
+				const struct section *sec, const t_info *info);
+void		otool_display_text_addr_32(const uint32_t num,
+				const uint32_t offset, const char *base);
 
 uint32_t	cvrt_u32(uint32_t num, const t_info *info);
 uint64_t	cvrt_u64(uint64_t num, const t_info *info);
