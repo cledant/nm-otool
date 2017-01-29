@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 13:15:00 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/29 17:45:54 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/29 18:10:48 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "otool_struct.h"
 
 int			otool_start(const void *start_file, const off_t file_size,
-				const char *arg);
+				const char *arg, const int fat);
 int			otool_error_handler(const t_error err);
 void		otool_init_info(t_info *info, const void *ptr, const off_t size,
 				const char *arg);

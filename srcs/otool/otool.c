@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:40:20 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/29 14:04:58 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/29 18:12:05 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int		single_file_otool(const int i, char **argv)
 	if ((ptr = mmap(NULL, file_stat.st_size, PROT_READ, MAP_PRIVATE, fd, 0))
 			== MAP_FAILED)
 		return (otool_error_handler(ERR_MMAP));
-	otool_start(ptr, file_stat.st_size, argv[i]);
+	otool_start(ptr, file_stat.st_size, argv[i], OTOOL_CHECK_FAT);
 	if (munmap(ptr, file_stat.st_size) == -1)
 		return (otool_error_handler(ERR_MUNMAP));
 	if (close(fd) == -1)

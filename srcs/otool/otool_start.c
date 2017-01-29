@@ -6,14 +6,14 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:03:23 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/29 18:03:00 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/29 18:11:51 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "otool.h"
 
 int		otool_start(const void *start_file, const off_t file_size,
-			const char *arg)
+			const char *arg, const int fat)
 {
 	t_info	info;
 
@@ -23,8 +23,8 @@ int		otool_start(const void *start_file, const off_t file_size,
 	otool_set_endianness(&info, start_file);
 	if ((info.name = ft_strdup(info.arg)) == NULL)
 		return (otool_error_handler(ERR_MEM));
-	if (*(uint32_t *)start_file == FAT_MAGIC || *(uint32_t *)start_file
-			== FAT_CIGAM)
+	if ((*(uint32_t *)start_file == FAT_MAGIC || *(uint32_t *)start_file
+			== FAT_CIGAM) && fat == OTOOL_CHECK_FAT)
 		otool_macho_fat(&info, (struct fat_header *)start_file);
 	else if (*(uint32_t *)start_file == MH_MAGIC || *(uint32_t *)start_file
 			== MH_CIGAM)

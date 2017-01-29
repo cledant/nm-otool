@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/29 17:18:42 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/29 18:03:51 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/29 18:12:25 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		otool_macho_fat(const t_info *info,
 				info), cvrt_u32(fat->size, info) ,info) == OTOOL_FAIL)
 			return (otool_error_handler(ERR_INVALID_FILE));
 		if (otool_start((void *)start_file + cvrt_u32(fat->offset, info),
-				cvrt_u32(fat->size, info), info->arg) != OTOOL_OK)
+				cvrt_u32(fat->size, info), info->arg, OTOOL_NO_FAT) != OTOOL_OK)
 			return (OTOOL_FAIL);
 		i++;
 		fat = fat + sizeof(struct fat_arch);
