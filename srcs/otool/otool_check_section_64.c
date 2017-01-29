@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   otool_display_section_64.c                         :+:      :+:    :+:   */
+/*   otool_check_section_64.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/26 21:23:05 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/27 18:34:39 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/29 13:24:10 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/29 13:24:14 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "otool.h"
 
-int		otool_display_section_64(const struct mach_header_64 *start_header,
+int		otool_check_section_64(const struct mach_header_64 *start_header,
 			const struct segment_command_64 *seg, const t_info *info)
 {
 	struct section_64	*sec;
@@ -23,7 +23,7 @@ int		otool_display_section_64(const struct mach_header_64 *start_header,
 		return (OTOOL_FAIL);
 	i = 0;
 	sec = (void *)seg + sizeof(struct segment_command_64);
-	while (i < uint32_swap_endian(seg->nsects, info))
+	while (i < cvrt_u32(seg->nsects, info))
 	{
 		if (otool_is_interval_valid((size_t)sec, sizeof(struct section_64),
 				info) == OTOOL_FAIL)

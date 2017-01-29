@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:41:33 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/27 14:32:43 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/29 14:05:43 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct		s_info
 {
 	size_t			start;
 	off_t			file_size;
-	t_endian		endianness;
+	t_endian		endian;
 	size_t			end;
 	const char		*arg;
 	char			*name;
