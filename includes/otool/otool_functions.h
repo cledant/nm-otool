@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 13:15:00 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/29 14:32:35 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/29 17:45:54 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,8 @@ void		otool_display_text_addr_32(const uint32_t num,
 
 uint32_t	cvrt_u32(uint32_t num, const t_info *info);
 uint64_t	cvrt_u64(uint64_t num, const t_info *info);
+
+int			otool_macho_fat(const t_info *info,
+				const struct fat_header *start_file);
 
 #endif

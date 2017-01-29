@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:03:23 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/27 14:42:13 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/29 18:03:00 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,20 @@ int		otool_start(const void *start_file, const off_t file_size,
 		return (otool_error_handler(ERR_INVALID_FILE));
 	otool_init_info(&info, start_file, file_size, arg);
 	otool_set_endianness(&info, start_file);
+	if ((info.name = ft_strdup(info.arg)) == NULL)
+		return (otool_error_handler(ERR_MEM));
 	if (*(uint32_t *)start_file == FAT_MAGIC || *(uint32_t *)start_file
 			== FAT_CIGAM)
-		ft_putendl("Fat file type");
+		otool_macho_fat(&info, (struct fat_header *)start_file);
 	else if (*(uint32_t *)start_file == MH_MAGIC || *(uint32_t *)start_file
 			== MH_CIGAM)
 		otool_macho_32(&info, (struct mach_header *)start_file);
 	else if (*(uint32_t *)start_file == MH_MAGIC_64 || *(uint32_t *)start_file
 			== MH_CIGAM_64)
-	{
-		if ((info.name = ft_strdup(info.arg)) == NULL)
-			return (otool_error_handler(ERR_MEM));
 		otool_macho_64(&info, (struct mach_header_64 *)start_file);
-	}
 	else
 		return (otool_error_handler(ERR_UNKNOWN));
 	if (info.name != NULL)
 		free(info.name);
-	return (0);
+	return (OTOOL_OK);
 }
