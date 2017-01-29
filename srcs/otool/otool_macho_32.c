@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/29 14:35:19 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/29 15:23:01 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/29 19:44:48 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		otool_macho_32(const t_info *info,
 		if (otool_is_interval_valid((size_t)lc, sizeof(struct load_command),
 				info) == OTOOL_FAIL)
 			return ((otool_error_handler(ERR_INVALID_FILE)));
-		if (cvrt_u32(lc->cmd, info) == LC_SEGMENT_64)
+		if (cvrt_u32(lc->cmd, info) == LC_SEGMENT)
 		{
 			if (otool_check_section_32(start_macho, (void *)lc, info)
 					== OTOOL_FAIL)
