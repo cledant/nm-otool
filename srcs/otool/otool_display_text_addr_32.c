@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/29 15:03:39 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/29 15:07:00 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/30 10:13:15 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void	otool_display_text_addr_32(const uint32_t num, const uint32_t offset,
 		i++;
 	}
 	i = 0;
-	while (i < 16)
+	while (i < 8)
 	{
-		ft_putchar(display[15 - i]);
+		ft_putchar(display[7 - i]);
 		i++;
 	}
 	ft_putchar('\t');

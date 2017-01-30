@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/29 17:18:42 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/29 19:38:23 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/30 10:15:59 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int		otool_macho_fat(const t_info *info,
 	uint32_t			i;
 	struct fat_arch		*fat;
 
-	ft_putendl("Fat file !");
 	if (otool_is_interval_valid((size_t)start_file, sizeof(struct fat_header),
 			info) == OTOOL_FAIL)
 		return (otool_error_handler(ERR_INVALID_FILE));
