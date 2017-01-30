@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:41:33 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/29 14:05:43 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/30 14:40:50 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,12 @@ typedef struct		s_info
 	const char		*arg;
 	char			*name;
 }					t_info;
+
+typedef struct		s_fat_info
+{
+	cpu_type_t		cpu;
+	uint32_t		size;
+	uint32_t		offset;
+}					t_fat_info;
 
 #endif

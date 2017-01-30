@@ -6,7 +6,7 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2017/01/30 13:18:03 by cledant          ###   ########.fr        #
+#    Updated: 2017/01/30 15:30:30 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,10 @@ SRCS_NAME_OTOOL = otool.c otool_start.c otool_error_handler.c \
 				  otool_display_text_addr_64.c convert_endian.c \
 				  otool_macho_32.c otool_check_section_32.c \
 				  otool_display_sec_32_data.c otool_display_text_addr_32.c \
-				  otool_macho_fat.c otool_check_archive.c otool_archive.c
+				  otool_check_archive.c otool_archive.c \
+				  otool_fat_arch.c otool_init_fat_info.c \
+				  otool_check_fat_arch_x86_64.c otool_check_fat_arch_x86.c \
+				  otool_fat_display_all.c otool_fat_display_one.c
 
 SRCS_PATH_OTOOL = ./srcs/otool
 
