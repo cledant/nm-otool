@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/29 14:43:15 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/29 14:43:17 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/30 16:04:09 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int		otool_check_section_32(const struct mach_header *start_header,
 		if (ft_strncmp(sec->segname, SEG_TEXT, 16) == 0 &&
 				ft_strncmp(sec->sectname, SECT_TEXT, 16) == 0)
 		{
-			if (otool_display_sec_32_data(start_header, sec, info) == OTOOL_FAIL)
+			if (otool_display_sec_32_data(start_header, sec, info)
+					== OTOOL_FAIL)
 				return (OTOOL_FAIL);
 		}
 		sec = (void *)sec + sizeof(struct section);

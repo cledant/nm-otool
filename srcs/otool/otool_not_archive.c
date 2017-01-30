@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:03:23 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/30 12:58:03 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/30 16:03:27 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		otool_start(const void *start_file, const off_t file_size,
 			const char *arg, const int fat)
 {
 	t_info	info;
-	
+
 	if (file_size < 0 || file_size < (long long int)sizeof(uint32_t) ||
 			file_size < (long long int)(sizeof(char) * 8))
 		return (otool_error_handler(ERR_INVALID_FILE));

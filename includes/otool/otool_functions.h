@@ -6,14 +6,14 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 13:15:00 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/30 15:29:36 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/30 16:10:45 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OTOOL_FUNCTIONS_H
 # define OTOOL_FUNCTIONS_H
 
-#include "otool_struct.h"
+# include "otool_struct.h"
 
 int			otool_check_archive(const void *start_file, const off_t file_size,
 				const char *arg);
