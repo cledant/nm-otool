@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   otool_includes.h                                   :+:      :+:    :+:   */
+/*   otool_get_nb_item.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/25 13:15:45 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/31 12:14:00 by cledant          ###   ########.fr       */
+/*   Created: 2017/01/31 21:00:43 by cledant           #+#    #+#             */
+/*   Updated: 2017/01/31 21:08:12 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OTOOL_INCLUDES_H
-# define OTOOL_INCLUDES_H
+#include "otool.h"
 
-# include <sys/mman.h>
-# include <fcntl.h>
-# include <sys/stat.h>
-# include <ar.h>
-# include <ranlib.h>
-# include <mach-o/nlist.h>
-# include <mach-o/loader.h>
-# include <mach-o/fat.h>
-# include <mach-o/ranlib.h>
-# include "libft.h"
-
-#include <stdio.h> //caca
-
-#endif
+size_t		otool_get_nb_item(const size_t *start_header)
+{
+	return (*size / sizeof(struct ranlib));
+}

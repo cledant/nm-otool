@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 13:15:00 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/30 16:10:45 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/31 21:08:00 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,7 @@
 
 # include "otool_struct.h"
 
-int			otool_check_archive(const void *start_file, const off_t file_size,
-				const char *arg);
 int			otool_start(const void *start_file, const off_t file_size,
-				const char *arg, const int fat);
-int			otool_archive(const void *start_file, const off_t file_size,
 				const char *arg);
 int			otool_error_handler(const t_error err);
 void		otool_init_info(t_info *info, const void *ptr, const off_t size,
@@ -63,5 +59,11 @@ int			otool_fat_display_all(const t_info *info,
 				const struct fat_header *start_file);
 int			otool_fat_display_one(const struct fat_header *start_file,
 				const t_fat_info *fat_info, const t_info *info);
+
+int			otool_archive(const t_info *info,
+				const struct ar_hdr *start_header);
+size_t		otool_get_long_name_size(const struct ar_hdr *start_header);
+size_t		otool_get_header_size(const struct ar_hdr *start_header);
+size_t		otool_get_nb_item(const size_t *start_header);
 
 #endif

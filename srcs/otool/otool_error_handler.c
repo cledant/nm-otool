@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 11:37:18 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/27 14:33:34 by cledant          ###   ########.fr       */
+/*   Updated: 2017/01/31 20:03:21 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ int		otool_error_handler(const t_error err)
 		ft_putendl("ft_otool : not enough memory");
 	else if (err == ERR_NAME)
 		ft_putendl("ft_otool : please enter a name");
+	else if (err == ERR_INVALID_ARCHIVE)
+		ft_putendl("ft_otool : error invalid archive");
 	return (OTOOL_FAIL);
 }
