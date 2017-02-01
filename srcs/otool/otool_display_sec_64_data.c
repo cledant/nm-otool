@@ -6,14 +6,22 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 20:43:48 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/29 13:55:28 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/01 17:25:53 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "otool.h"
 
-int		otool_display_sec_64_data(const struct mach_header_64 *start_header,
-			const struct section_64 *sec, const t_info *info)
+static void		disp_text(const t_info *info)
+{
+	ft_putstr(info->arg);
+	ft_putendl(":");
+	ft_putendl("Contents of (__TEXT,__text) section");
+}
+
+int				otool_display_sec_64_data(const struct mach_header_64
+					*start_header, const struct section_64 *sec,
+					const t_info *info)
 {
 	unsigned char	*data;
 	uint64_t		i;
@@ -22,9 +30,7 @@ int		otool_display_sec_64_data(const struct mach_header_64 *start_header,
 			info), cvrt_u64(sec->size, info), info) == OTOOL_FAIL)
 		return (OTOOL_FAIL);
 	i = 0;
-	ft_putstr(info->arg);
-	ft_putendl(":");
-	ft_putendl("Contents of (__TEXT,__text) section");
+	disp_text(info);
 	data = (void *)start_header + cvrt_u32(sec->offset, info);
 	while (i < cvrt_u64(sec->size, info))
 	{
@@ -38,6 +44,7 @@ int		otool_display_sec_64_data(const struct mach_header_64 *start_header,
 		if (i % 16 == 0 && i < cvrt_u64(sec->size, info))
 			ft_putchar('\n');
 	}
-	ft_putendl("");
+	if (i != 0)
+		ft_putendl("");
 	return (OTOOL_OK);
 }
