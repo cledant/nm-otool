@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/31 21:12:31 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/01 12:59:03 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/01 16:50:30 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int		loop_check(t_arch_loop *arch, const t_info *info)
 {
 	if (otool_is_interval_valid((size_t)(arch->ptr), sizeof(struct ar_hdr),
 			info) == OTOOL_FAIL)
-		return (otool_error_handler(ERR_INVALID_FILE));
+		return (OTOOL_FAIL);
 	if (ft_strncmp(arch->ptr->ar_name, AR_EFMT1, 3) != 0)
 		return (otool_error_handler(ERR_INVALID_ARCHIVE));
 	if ((arch->ex_size = otool_get_long_name_size(arch->ptr)) == 0)
@@ -49,7 +49,8 @@ int				otool_archive_explore(const struct ar_hdr *first,
 	init_arch_loop(&arch, first);
 	while (arch.i < nb_item)
 	{
-		loop_check(&arch, info);
+		if (loop_check(&arch, info) != OTOOL_OK)
+			return (OTOOL_OK);
 		if ((arch.start_name = otool_create_start_name(arch.ptr, arch.ex_size,
 				info)) == NULL)
 			return (otool_error_handler(ERR_MEM));
