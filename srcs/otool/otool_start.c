@@ -6,14 +6,21 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:03:23 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/01 11:01:14 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/01 19:08:14 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "otool.h"
 
-int		otool_start(const void *start_file, const off_t file_size,
-			const char *arg)
+static int		unknown_case(t_info *info)
+{
+	if (info->name != NULL)
+		free(info->name);
+	return (otool_error_handler(ERR_UNKNOWN));
+}
+
+int				otool_start(const void *start_file, const off_t file_size,
+					const char *arg)
 {
 	t_info	info;
 
@@ -36,7 +43,7 @@ int		otool_start(const void *start_file, const off_t file_size,
 			== MH_CIGAM_64)
 		otool_macho_64(&info, (struct mach_header_64 *)start_file);
 	else
-		return (otool_error_handler(ERR_UNKNOWN));
+		return (unknown_case(&info));
 	if (info.name != NULL)
 		free(info.name);
 	return (OTOOL_OK);
