@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 13:14:54 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/01 11:28:13 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/01 12:59:55 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ static int		init_archive_explore(const t_info *info,
 	return (OTOOL_OK);
 }
 
-int		otool_archive(const t_info *info, const struct ar_hdr *start_header)
+int				otool_archive(const t_info *info,
+					const struct ar_hdr *start_header)
 {
 	size_t		ex_size;
 

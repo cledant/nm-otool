@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:41:33 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/01 11:01:41 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/01 12:44:24 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,14 @@ typedef struct		s_fat_info
 	uint32_t		size;
 	uint32_t		offset;
 }					t_fat_info;
+
+typedef struct		s_arch_loop
+{
+	size_t			i;
+	size_t			ex_size;
+	size_t			header_size;
+	char			*start_name;
+	struct ar_hdr	*ptr;
+}					t_arch_loop;
 
 #endif
