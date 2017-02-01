@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/31 20:31:15 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/01 11:10:53 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/01 11:25:06 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ size_t		otool_get_long_name_size(const struct ar_hdr *start_header)
 	if (i == 2)
 		return (0);
 	ft_bzero(tmp, 16);
-	ft_memcpy((void *)start_header->ar_name + 3, tmp, i - 2);
+	ft_memcpy(tmp, (void *)(start_header->ar_name) + 3, i - 2);
 	return ((size_t)ft_atoi(tmp));
 }
