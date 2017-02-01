@@ -27,6 +27,7 @@ ft_otool
 # FOLDERS #
 ###########
 test
+obj
 
 # Debug #
 #########

@@ -6,7 +6,7 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2017/02/01 11:11:31 by cledant          ###   ########.fr        #
+#    Updated: 2017/02/01 13:54:11 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,8 +69,7 @@ clean :
 	make -C $(LIBFT_PATH) clean
 
 fclean : clean
-	rm -rf $(NAME)
-	rm -rf $(LINK)
+	rm -rf $(NAME_OTOOL)
 	make -C $(LIBFT_PATH) fclean
 
 re : fclean all
