@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:41:33 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/30 14:40:50 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/01 11:01:41 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 typedef enum		e_error
 {
 	ERR_ARGC, ERR_OPEN, ERR_FSTAT, ERR_MMAP, ERR_MUNMAP, ERR_CLOSE,
-	ERR_INVALID_FILE, ERR_UNKNOWN, ERR_MEM, ERR_NAME,
+	ERR_INVALID_FILE, ERR_UNKNOWN, ERR_MEM, ERR_NAME, ERR_INVALID_ARCHIVE,
 }					t_error;
 
 typedef enum		e_endian

@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 13:15:00 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/31 21:11:57 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/01 11:00:25 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,8 @@ size_t		otool_get_header_size(const struct ar_hdr *start_header);
 size_t		otool_get_nb_item(const size_t *start_header);
 int			otool_archive_explore(const struct ar_hdr *first,
 				const size_t nb_item, const t_info *info);
+char		*otool_create_start_name(const struct ar_hdr *ar_hdr, const size_t size,
+				const t_info *info);
+size_t		otool_strnlen(const char *s, size_t len);
 
 #endif

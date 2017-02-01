@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:03:23 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/31 15:23:22 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/01 11:01:14 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int		otool_start(const void *start_file, const off_t file_size,
 	if ((info.name = ft_strdup(info.arg)) == NULL)
 		return (otool_error_handler(ERR_MEM));
 	if ((*(uint32_t *)start_file == FAT_MAGIC || *(uint32_t *)start_file
-			== FAT_CIGAM) && fat == OTOOL_CHECK_FAT)
+			== FAT_CIGAM))
 		otool_fat_arch(&info, (struct fat_header *)start_file);
-	else if (ft_strcmp(start_file, ARMAG, 8) == 0)
+	else if (ft_strncmp(start_file, ARMAG, 8) == 0)
 		otool_archive(&info, (void *)start_file + 8);
 	else if (*(uint32_t *)start_file == MH_MAGIC || *(uint32_t *)start_file
 			== MH_CIGAM)

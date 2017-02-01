@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 13:15:45 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/31 12:14:00 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/01 10:59:32 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <fcntl.h>
 # include <sys/stat.h>
 # include <ar.h>
-# include <ranlib.h>
 # include <mach-o/nlist.h>
 # include <mach-o/loader.h>
 # include <mach-o/fat.h>

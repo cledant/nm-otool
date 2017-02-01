@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 15:17:04 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/30 15:27:24 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/01 11:10:20 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ int		otool_fat_display_one(const struct fat_header *start_file,
 			fat_info->size, info) == OTOOL_FAIL)
 		return (otool_error_handler(ERR_INVALID_FILE));
 	otool_start((void *)start_file + fat_info->offset, fat_info->size,
-		info->arg, OTOOL_NO_FAT);
+		info->arg);
 	return (OTOOL_OK);
 }
