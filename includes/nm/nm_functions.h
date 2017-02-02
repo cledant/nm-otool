@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   otool_functions.h                                  :+:      :+:    :+:   */
+/*   nm_functions.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/25 13:15:00 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/02 13:27:39 by cledant          ###   ########.fr       */
+/*   Created: 2017/02/02 12:16:57 by cledant           #+#    #+#             */
+/*   Updated: 2017/02/02 13:27:19 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OTOOL_FUNCTIONS_H
-# define OTOOL_FUNCTIONS_H
+#ifndef NM_FUNCTIONS_H
+# define NM_FUNCTIONS_H
 
-# include "otool_struct.h"
+# include "nm_struct.h"
 
-int			otool_start(const void *start_file, const off_t file_size,
+int			nm_start(const void *start_file, const off_t file_size,
 				const char *arg);
-int			otool_error_handler(const t_error err);
-void		otool_init_info(t_info *info, const void *ptr, const off_t size,
+int			nm_error_handler(const t_error err);
+void		nm_init_info(t_info *info, const void *ptr, const off_t size,
 				const char *arg);
-int			otool_is_interval_valid(const size_t addr, const size_t size,
+int			nm_is_interval_valid(const size_t addr, const size_t size,
 				const t_info *info);
-void		otool_set_endianness(t_info *info, const uint32_t *start_file);
+void		nm_set_endianness(t_info *info, const uint32_t *start_file);
 
 void		otool_itoa_base_stack(const unsigned char num, const char *base);
 
-int			otool_macho_64(const t_info *info,
+int			nm_macho_64(const t_info *info,
 				const struct mach_header_64 *start_macho);
 int			otool_check_section_64(const struct mach_header_64 *start_header,
 				const struct segment_command_64 *seg, const t_info *info);

@@ -6,7 +6,7 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2017/02/01 13:54:11 by cledant          ###   ########.fr        #
+#    Updated: 2017/02/02 13:10:26 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ LIBFT_PATH = ./libft
 
 SRCS_NAME_OTOOL = otool.c otool_start.c otool_error_handler.c \
 				  otool_init_info.c otool_set_endianness.c \
-				  otool_is_mem_addr_valid.c otool_is_interval_valid.c \
+				  otool_is_interval_valid.c \
 				  otool_itoa_base_stack.c otool_macho_64.c \
 				  otool_check_section_64.c otool_display_sec_64_data.c \
 				  otool_display_text_addr_64.c convert_endian.c \
