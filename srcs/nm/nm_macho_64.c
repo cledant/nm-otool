@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 13:01:29 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/02 13:28:52 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/02 16:56:30 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int		nm_macho_64(const t_info *info,
 			return ((nm_error_handler(ERR_INVALID_FILE)));
 		if (cvrt_u32(lc->cmd, info) == LC_SYMTAB)
 		{
-			if (nm_check_symtab(start_macho, (void *)lc, info)
+			if (nm_check_symtab_64((void *)lc, info, start_macho)
 					== NM_FAIL)
-				return ((nm_error_handler(ERR_INVALID_FILE)));
+				return (NM_FAIL);
 		}
 		lc = (void *)lc + cvrt_u32(lc->cmdsize, info);
 		i++;
