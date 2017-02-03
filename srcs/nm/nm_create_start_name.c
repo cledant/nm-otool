@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   otool_create_start_name.c                          :+:      :+:    :+:   */
+/*   nm_create_start_name.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/01 10:10:19 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/01 19:26:10 by cledant          ###   ########.fr       */
+/*   Created: 2017/02/03 22:52:54 by cledant           #+#    #+#             */
+/*   Updated: 2017/02/03 22:53:39 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "otool.h"
+#include "nm.h"
 
-char	*otool_create_start_name(const struct ar_hdr *ar_hdr, const size_t size,
+char	*nm_create_start_name(const struct ar_hdr *ar_hdr, const size_t size,
 			const t_info *info)
 {
 	size_t		real_size;
@@ -20,7 +20,7 @@ char	*otool_create_start_name(const struct ar_hdr *ar_hdr, const size_t size,
 	char		*real_name;
 	char		*start_name;
 
-	if ((real_size = otool_strnlen((void *)ar_hdr + sizeof(struct ar_hdr),
+	if ((real_size = nm_strnlen((void *)ar_hdr + sizeof(struct ar_hdr),
 			size)) == 0)
 		return (NULL);
 	if ((real_name = ft_strnew(real_size)) == NULL)
