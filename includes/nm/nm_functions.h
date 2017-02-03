@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 12:16:57 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/02 16:49:08 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/03 12:27:43 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ int			nm_macho_64(const t_info *info,
 				const struct mach_header_64 *start_macho);
 int			nm_check_symtab_64(const struct symtab_command *symtab,
 				const t_info *info, const struct mach_header_64 *start_macho);
+int			nm_is_string_tab_valid(const char *tab, const uint32_t size);
+size_t		*nm_new_size_t_tab(size_t size);
+int			nm_sort_symtab(size_t *sort_tab, const uint32_t nb_elmt,
+				const char *tab);
+
 int			otool_display_sec_64_data(const struct mach_header_64 *start_header,
 				const struct section_64 *sec, const t_info *info);
 void		otool_display_text_addr_64(const uint64_t num,

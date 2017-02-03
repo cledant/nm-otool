@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   nm_defines.h                                       :+:      :+:    :+:   */
+/*   nm_new_size_t_tab.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/02 12:15:19 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/03 12:52:31 by cledant          ###   ########.fr       */
+/*   Created: 2017/02/03 12:21:34 by cledant           #+#    #+#             */
+/*   Updated: 2017/02/03 12:24:26 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef NM_DEFINES_H
-# define NM_DEFINES_H
+#include "nm.h"
 
-# define NM_OK 0
-# define NM_FAIL -1
+inline size_t		*nm_new_size_t_tab(size_t size)
+{
+	size_t		*tab;
 
-# define USED 1
-# define UNUSED 0
-
-#endif
+	if ((tab = (size_t *)malloc(sizeof(size_t) * size)) == NULL)
+		return (NULL);
+	ft_bzero(tab, sizeof(size_t) * size);
+	return (tab);
+}

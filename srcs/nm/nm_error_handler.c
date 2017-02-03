@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 12:33:33 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/02 12:39:18 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/03 11:31:21 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,7 @@ int		nm_error_handler(const t_error err)
 		ft_putendl("ft_nm : error invalid archive");
 	else if (err == ERR_NO_A_OUT)
 		ft_putendl("ft_nm : a.out not found");
+	else if (err == ERR_SORT)
+		ft_putendl("ft_nm : error while sorting symbols");
 	return (NM_FAIL);
 }

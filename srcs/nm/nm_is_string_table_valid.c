@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   nm_defines.h                                       :+:      :+:    :+:   */
+/*   nm_is_string_table_valid.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/02 12:15:19 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/03 12:52:31 by cledant          ###   ########.fr       */
+/*   Created: 2017/02/03 12:15:52 by cledant           #+#    #+#             */
+/*   Updated: 2017/02/03 12:17:33 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef NM_DEFINES_H
-# define NM_DEFINES_H
+#include "nm.h"
 
-# define NM_OK 0
-# define NM_FAIL -1
-
-# define USED 1
-# define UNUSED 0
-
-#endif
+int		nm_is_string_table_valid(const char *tab, const uint32_t size)
+{
+	if (tab[size - 1] != '\0')
+		return (NM_FAIL);
+	return (NM_OK);
+}
