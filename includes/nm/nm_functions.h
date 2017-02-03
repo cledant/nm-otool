@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 12:16:57 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/03 22:55:03 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/03 22:57:06 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int			nm_display_symtab_64(const struct symtab_command *symtab,
 				const size_t *sort_tab);
 void		nm_display_symbol_value_type_64(const struct nlist_64 *data,
 				const size_t item, const struct mach_header_64 *m_header);
-void		nm_init_symbol_info(t_symbol_info *sy_info, const uint8_t val)
+void		nm_init_symbol_info(t_symbol_info *sy_info, const uint8_t val);
 
 int			nm_macho_32(const t_info *info,
 				const struct mach_header *start_macho);

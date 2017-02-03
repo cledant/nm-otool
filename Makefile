@@ -6,7 +6,7 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2017/02/03 22:54:45 by cledant          ###   ########.fr        #
+#    Updated: 2017/02/03 22:56:43 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ LIBS = -lft
 
 INCLUDES_OTOOL = ./includes/otool
 
-INCLUDES_NM = ./includes/otool
+INCLUDES_NM = ./includes/nm
 
 INCLUDES_LIBFT = ./libft/includes
 
