@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 12:16:57 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/03 15:01:53 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/03 18:36:38 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int			nm_is_interval_valid(const size_t addr, const size_t size,
 				const t_info *info);
 void		nm_set_endianness(t_info *info, const uint32_t *start_file);
 
-void		otool_itoa_base_stack(const unsigned char num, const char *base);
 
 int			nm_macho_64(const t_info *info,
 				const struct mach_header_64 *start_macho);
@@ -33,11 +32,19 @@ int			nm_check_symtab_64(const struct symtab_command *symtab,
 int			nm_display_symtab_64(const struct symtab_command *symtab,
 				const t_info *info, const struct mach_header_64 *start_macho,
 				const size_t *sort_tab);
+void		nm_display_symbol_value_type_64(const struct nlist_64 *data,
+				const size_t item, const struct mach_header_64 *m_header);
+void		nm_display_addr_64(const uint64_t num, const char *base);
+
 int			nm_is_string_tab_valid(const char *tab, const uint32_t size);
 size_t		*nm_new_size_t_tab(size_t size);
 int			nm_sort_symtab(size_t *sort_tab, const uint32_t nb_elmt,
 				const char *tab);
 
+
+/*reste otool*/
+
+void		otool_itoa_base_stack(const unsigned char num, const char *base);
 int			otool_display_sec_64_data(const struct mach_header_64 *start_header,
 				const struct section_64 *sec, const t_info *info);
 void		otool_display_text_addr_64(const uint64_t num,

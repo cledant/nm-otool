@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 12:14:45 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/03 14:57:42 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/03 17:43:43 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,13 @@ typedef struct						s_nm_info_64
 	const t_info					info;
 	const size_t					*sort_tab;
 }									t_nm_info_64;
+
+typedef struct						s_symbol_info
+{
+	uint8_t							stab;
+	uint8_t							pext;
+	uint8_t							type;
+	uint8_t							ext;
+}									t_symbol_info;
 
 #endif
