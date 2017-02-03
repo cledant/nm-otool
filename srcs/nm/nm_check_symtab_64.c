@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 19:31:40 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/03 12:23:24 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/03 14:58:36 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,11 @@ int		nm_check_symtab_64(const struct symtab_command *symtab,
 	if ((sort_tab = nm_new_size_t_tab(symtab->nsyms)) == NULL)
 		return (nm_error_handler(ERR_MEM));
 	if (nm_sort_sym_tab(sort_tab, symtab->nsyms, symtab->stroff) == NM_FAIL)
+	{
+		free(sort_tab);
 		return (nm_error_handler(ERR_SORT));
-	nm_display_symtab(start_macho, symtab, info, start_tab);
+	}
+	nm_display_symtab_64(start_macho, symtab, info, sort_tab);
 	free(sort_tab);
 	return (NM_OK);
 }

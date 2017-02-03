@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 12:24:44 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/03 13:06:39 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/03 14:24:22 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,23 @@
 
 static int		set_ref(char *used_tab, const size_t nb_elmt, size_t *ref)
 {
-	
+	size_t	i;
+
+	i = 0;
+	while (i < nb_elmt)
+	{
+		if (used_tab[i] == UNUSED)
+		{
+			*ref = i;
+			return (NM_OK);
+		}
+		i++;	
+	}
+	return (NM_FAIL);	
 }
 
-int		nm_sort_symtab(size_t *sort_tab, const uint32_t nb_elmt,
-			const char *tab)
+int				nm_sort_symtab(size_t *sort_tab, const uint32_t nb_elmt,
+					const char *tab)
 {
 	size_t	i;
 	size_t	j;
@@ -42,7 +54,7 @@ int		nm_sort_symtab(size_t *sort_tab, const uint32_t nb_elmt,
 			else
 				j++;
 		}
-		sort_tab[i] = ref;	
+		sort_tab[i] = ref;
 		used_tab[ref] = USED;
 		j = 0;
 		i++;
