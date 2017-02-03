@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 12:16:57 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/03 18:36:38 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/03 20:02:51 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ int			nm_is_interval_valid(const size_t addr, const size_t size,
 				const t_info *info);
 void		nm_set_endianness(t_info *info, const uint32_t *start_file);
 
+int			nm_is_string_tab_valid(const char *tab, const uint32_t size);
+size_t		*nm_new_size_t_tab(size_t size);
+int			nm_sort_symtab(size_t *sort_tab, const uint32_t nb_elmt,
+				const char *tab);
 
 int			nm_macho_64(const t_info *info,
 				const struct mach_header_64 *start_macho);
@@ -34,13 +38,17 @@ int			nm_display_symtab_64(const struct symtab_command *symtab,
 				const size_t *sort_tab);
 void		nm_display_symbol_value_type_64(const struct nlist_64 *data,
 				const size_t item, const struct mach_header_64 *m_header);
+void		nm_init_symbol_info(t_symbol_info *sy_info, const uint8_t val)
+
+void		nm_print_undefined_64(const int uc);
+void		nm_print_absolute_64(const int uc, const uint64_t value);
+void		nm_print_sect_64(const int uc, const uint64_t value,
+				const uint8_t sect_val, const struct mach_header_64 *m_header);
+void		nm_print_unknown_64(void);
 void		nm_display_addr_64(const uint64_t num, const char *base);
 
-int			nm_is_string_tab_valid(const char *tab, const uint32_t size);
-size_t		*nm_new_size_t_tab(size_t size);
-int			nm_sort_symtab(size_t *sort_tab, const uint32_t nb_elmt,
-				const char *tab);
-
+uint32_t	cvrt_u32(uint32_t num, const t_info *info);
+uint64_t	cvrt_u64(uint64_t num, const t_info *info);
 
 /*reste otool*/
 
@@ -58,9 +66,6 @@ int			otool_display_sec_32_data(const struct mach_header *start_header,
 				const struct section *sec, const t_info *info);
 void		otool_display_text_addr_32(const uint32_t num,
 				const uint32_t offset, const char *base);
-
-uint32_t	cvrt_u32(uint32_t num, const t_info *info);
-uint64_t	cvrt_u64(uint64_t num, const t_info *info);
 
 int			otool_fat_arch(const t_info *info,
 				const struct fat_header *start_file);

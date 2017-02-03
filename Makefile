@@ -6,7 +6,7 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2017/02/02 13:10:26 by cledant          ###   ########.fr        #
+#    Updated: 2017/02/03 20:01:08 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,13 @@ OBJ_DIR_NAME = obj
 
 OBJ_DIR_NAME_OTOOL = $(OBJ_DIR_NAME)/otool
 
+OBJ_DIR_NAME_NM = $(OBJ_DIR_NAME)/nm
+
 LIBS = -lft
 
 INCLUDES_OTOOL = ./includes/otool
+
+INCLUDES_NM = ./includes/otool
 
 INCLUDES_LIBFT = ./libft/includes
 
@@ -47,7 +51,22 @@ OBJ_SRCS_OTOOL = $(SRCS_NAME_OTOOL:%.c=$(OBJ_DIR_NAME_OTOOL)/%.o)
 
 NAME_OTOOL = ft_otool
 
-all : libft $(OBJ_DIR_NAME) $(OBJ_DIR_NAME_OTOOL) $(NAME_OTOOL)
+SRCS_NAME_NM = nm.c nm_start.c nm_error_handler.c nm_init_info.c \
+			   nm_is_interval_valid.c nm_set_endianness.c nm_macho_64.c \
+			   nm_check_symtab_64.c nm_display_symtab_64.c nm_display_symtab_64.c \
+			   nm_display_symbol_value_type_64.c nm_print_undefined_64.c \
+			   nm_print_absolute_64.c nm_print_sect_64.c nm_print_unknown_64.c \
+			   nm_display_addr_64.c nm_is_string_tab_valid.c nm_new_size_t_tab.c \
+			   nm_sort_symtab.c convert_endian.c
+
+SRCS_PATH_NM = ./srcs/nm
+
+OBJ_SRCS_NM = $(SRCS_NAME_NM:%.c=$(OBJ_DIR_NAME_NM)/%.o)
+
+NAME_NM = ft_nm
+
+all : libft $(OBJ_DIR_NAME) $(OBJ_DIR_NAME_OTOOL) $(OBJ_DIR_NAME_NM) $(NAME_OTOOL) $(NAME_NM)
+
 
 libft :
 	make -C $(LIBFT_PATH)
@@ -58,11 +77,20 @@ $(OBJ_DIR_NAME) :
 $(OBJ_DIR_NAME_OTOOL) :
 	mkdir $(OBJ_DIR_NAME_OTOOL)
 
+$(OBJ_DIR_NAME_NM) :
+	mkdir $(OBJ_DIR_NAME_NM)
+
 $(NAME_OTOOL) : $(OBJ_SRCS_OTOOL)
+	$(CC) -o $@ $^ $(CFLAGS) $(LIBS) -L$(LIBFT_PATH)
+
+$(NAME_NM) : $(OBJ_SRCS_NM)
 	$(CC) -o $@ $^ $(CFLAGS) $(LIBS) -L$(LIBFT_PATH)
 
 $(OBJ_DIR_NAME_OTOOL)/%.o : $(SRCS_PATH_OTOOL)/%.c
 	$(CC) -o $@ -c $< $(CFLAGS) -I$(INCLUDES_OTOOL) -I$(INCLUDES_LIBFT)
+
+$(OBJ_DIR_NAME_NM)/%.o : $(SRCS_PATH_NM)/%.c
+	$(CC) -o $@ -c $< $(CFLAGS) -I$(INCLUDES_NM) -I$(INCLUDES_LIBFT)
 
 clean :
 	rm -rf $(OBJ_DIR_NAME)
@@ -70,6 +98,7 @@ clean :
 
 fclean : clean
 	rm -rf $(NAME_OTOOL)
+	rm -rf $(NAME_NM)
 	make -C $(LIBFT_PATH) fclean
 
 re : fclean all
