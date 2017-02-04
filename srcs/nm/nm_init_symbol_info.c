@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 20:03:05 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/04 12:15:05 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/04 13:37:09 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ inline static uint8_t	get_type(const uint8_t val)
 {
 	uint8_t		cpy_val;
 
-	cpy_val = (val & 0x0e) >> 1;
+	cpy_val = (val & 0x0e);
 	return (cpy_val);
 }
 
