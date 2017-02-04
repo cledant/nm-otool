@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   nm_print_sect_64.c                                 :+:      :+:    :+:   */
+/*   nm_get_sect_type_64.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/03 19:21:19 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/04 14:32:32 by cledant          ###   ########.fr       */
+/*   Created: 2017/02/04 14:15:49 by cledant           #+#    #+#             */
+/*   Updated: 2017/02/04 14:32:24 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "nm.h"
-
-void	nm_print_sect_64(const int uc, const uint64_t value,
-			const uint8_t sect_val, const struct mach_header_64 *m_header)
+char	nm_get_sect_type_64(const uint8_t sect_val,
+			const struct mach_header_64 *m_header)
 {
-	char	disp;
+	t_info					info;
+	struct load_command		*lc;
+	size_t					i;
 
-	disp = nm_get_sect_type_64(sect_val, m_header);
-	nm_display_addr_64(value, "0123456789abcdef");
-	if (uc == MIN)
-	{
-		disp = ft_tolower(disp);
-		ft_putchar(disp);
-	}
-	else
-		ft_putchar(disp);
-	ft_putchar(' ');
+	nm_set_endianness(&info, (void *)m_header);
+
+	return ('E');
 }
