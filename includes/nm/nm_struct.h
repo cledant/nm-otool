@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 12:14:45 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/04 12:07:59 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/04 16:44:43 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,12 @@ typedef struct						s_symbol_info
 	uint8_t							type;
 	uint8_t							ext;
 }									t_symbol_info;
+
+typedef struct						s_sect_data
+{
+	char							type;
+	size_t							counter;
+	uint8_t							sect_val;
+}									t_sect_data;
 
 #endif

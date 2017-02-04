@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 12:15:19 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/03 18:20:55 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/04 16:47:26 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,8 @@
 
 # define MAJ 1
 # define MIN 0
+
+# define YES 1
+# define NO 0
 
 #endif
