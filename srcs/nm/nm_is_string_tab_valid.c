@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   nm_print_unknown.c                                 :+:      :+:    :+:   */
+/*   nm_is_string_tab_valid.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/03 19:07:42 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/03 19:07:43 by cledant          ###   ########.fr       */
+/*   Created: 2017/02/04 12:13:11 by cledant           #+#    #+#             */
+/*   Updated: 2017/02/04 12:18:34 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
-void	nm_print_unknown_64(const int uc)
+int		nm_is_string_tab_valid(const char *tab, const uint32_t size)
 {
-	ft_putstr("                 ");
-	ft_putchar('?');
-	ft_putchar(' ');
+	if (tab[size - 1] != '\0')
+		return (NM_FAIL);
+	return (NM_OK);
 }

@@ -6,11 +6,11 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/29 12:08:28 by cledant           #+#    #+#             */
-/*   Updated: 2017/01/29 13:16:43 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/04 12:14:15 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "otool.h"
+#include "nm.h"
 
 inline uint32_t		cvrt_u32(uint32_t num, const t_info *info)
 {

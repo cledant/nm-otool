@@ -6,14 +6,14 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 21:46:55 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/03 22:04:26 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/04 12:15:34 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
 int		nm_macho_32(const t_info *info,
-			const struct mach_header_64 *start_macho)
+			const struct mach_header *start_macho)
 {
 	if (info != NULL && start_macho != NULL)
 		ft_putendl("Mach-O 32");

@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 12:24:44 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/03 14:24:22 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/04 12:13:48 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int				nm_sort_symtab(size_t *sort_tab, const uint32_t nb_elmt,
 	{
 		while (j < nb_elmt)
 		{
-			if (used_tab[j] == UNUSED && ft_strcmp(tab[ref], tab[j]) < 0)
+			if (used_tab[j] == UNUSED && ft_strcmp(&tab[ref], &tab[j]) < 0)
 			{
 				ref = j;
 				j = 0;

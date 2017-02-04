@@ -6,7 +6,7 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2017/02/03 22:56:43 by cledant          ###   ########.fr        #
+#    Updated: 2017/02/04 12:16:19 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,7 @@ SRCS_NAME_NM = nm.c nm_start.c nm_error_handler.c nm_init_info.c \
 			   nm_print_absolute_64.c nm_print_sect_64.c nm_print_unknown_64.c \
 			   nm_display_addr_64.c nm_is_string_tab_valid.c nm_new_size_t_tab.c \
 			   nm_sort_symtab.c convert_endian.c nm_init_symbol_info.c \
-			   nm_macho_32.c nm_fat_arch.c nm_check_fat_arch_x86_84.c \
+			   nm_macho_32.c nm_fat_arch.c nm_check_fat_arch_x86_64.c \
 			   nm_init_fat_info.c nm_check_fat_arch_x86.c nm_fat_display_all.c \
 			   nm_fat_display_one.c nm_archive.c nm_get_long_name_size.c \
 			   nm_get_header_size.c nm_get_nb_item.c nm_archive_explore.c \

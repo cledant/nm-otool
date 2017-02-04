@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 19:31:40 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/03 14:58:36 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/04 12:00:27 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,13 @@ int		nm_check_symtab_64(const struct symtab_command *symtab,
 	if (nm_is_interval_valid((size_t)start_macho + (size_t)(symtab->symoff),
 			symtab->nsyms * sizeof(struct nlist_64), info) == NM_FAIL)
 		return (nm_error_handler(ERR_INVALID_FILE));
-	if (nm_is_string_tab_valid(sym->stroff, sym->strsize) == NM_FAIL)
+	if (nm_is_string_tab_valid((void *)start_macho + symtab->stroff,
+			symtab->strsize) == NM_FAIL)
 		return (nm_error_handler(ERR_INVALID_FILE));
 	if ((sort_tab = nm_new_size_t_tab(symtab->nsyms)) == NULL)
 		return (nm_error_handler(ERR_MEM));
-	if (nm_sort_sym_tab(sort_tab, symtab->nsyms, symtab->stroff) == NM_FAIL)
+	if (nm_sort_symtab(sort_tab, symtab->nsyms, (void * )start_macho +
+		symtab->stroff) == NM_FAIL)
 	{
 		free(sort_tab);
 		return (nm_error_handler(ERR_SORT));

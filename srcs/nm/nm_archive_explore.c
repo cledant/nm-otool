@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 22:46:34 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/03 22:50:38 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/04 12:16:51 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ int				nm_archive_explore(const struct ar_hdr *first,
 	init_arch_loop(&arch, first);
 	while (arch.i < nb_item)
 	{
-		if (loop_check(&arch, info) != OTOOL_OK)
-			return (OTOOL_OK);
+		if (loop_check(&arch, info) != NM_OK)
+			return (NM_OK);
 		if ((arch.start_name = nm_create_start_name(arch.ptr, arch.ex_size,
 				info)) == NULL)
 			return (nm_error_handler(ERR_MEM));

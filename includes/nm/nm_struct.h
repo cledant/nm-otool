@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 12:14:45 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/03 17:43:43 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/04 12:07:59 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct						s_nm_info_64
 	size_t							i;
 	const struct mach_header_64		*m_header;
 	const struct symtab_command		*symtab;
-	const t_info					info;
+	const t_info					*info;
 	const size_t					*sort_tab;
 }									t_nm_info_64;
 
