@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 12:16:57 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/04 12:11:16 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/04 12:57:02 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void		nm_set_endianness(t_info *info, const uint32_t *start_file);
 int			nm_is_string_tab_valid(const char *tab, const uint32_t size);
 size_t		*nm_new_size_t_tab(size_t size);
 int			nm_sort_symtab(size_t *sort_tab, const uint32_t nb_elmt,
-				const char *tab);
+				const char *tab, const struct nlist_64 *list);
 
 int			nm_macho_64(const t_info *info,
 				const struct mach_header_64 *start_macho);
