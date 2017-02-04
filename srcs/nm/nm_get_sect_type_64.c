@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/04 14:15:49 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/04 18:20:43 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/04 18:55:48 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static void		compare_text(t_sect_data *data, const struct section_64 *sec)
 {
-//	ft_putendl(sec->sectname);
 	if (ft_strncmp(sec->sectname, SECT_TEXT, ft_strlen(SECT_TEXT)) == 0)
 		data->type = 'T';
 	else if (ft_strncmp(sec->sectname, SECT_BSS, ft_strlen(SECT_BSS)) == 0)
@@ -28,7 +27,7 @@ static void		compare_text(t_sect_data *data, const struct section_64 *sec)
 static void		seek_sect(t_sect_data *data, const t_info *info,
 					const struct segment_command_64 *seg)
 {
-	struct	section_64	*sec;
+	struct section_64	*sec;
 	uint32_t			i;
 
 	i = 1;
@@ -36,8 +35,8 @@ static void		seek_sect(t_sect_data *data, const t_info *info,
 	while (i <= seg->nsects)
 	{
 		if (nm_is_interval_valid((size_t)sec, sizeof(struct section_64), info)
-			== NM_FAIL)
-		return ;
+				== NM_FAIL)
+			return ;
 		if (data->counter + i == data->sect_val)
 		{
 			compare_text(data, sec);
@@ -62,7 +61,7 @@ static int		seek_type(t_sect_data *data, const t_info *info,
 	if (nm_is_interval_valid((size_t)seg, sizeof(struct segment_command_64),
 			info) == NM_FAIL)
 		return (NM_FAIL);
-	if (is_in_interval(data, cvrt_u32(seg->nsects,info)) == YES)
+	if (is_in_interval(data, cvrt_u32(seg->nsects, info)) == YES)
 	{
 		seek_sect(data, info, seg);
 		return (NM_OK);

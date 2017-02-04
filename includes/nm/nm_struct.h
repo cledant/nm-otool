@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 12:14:45 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/04 16:44:43 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/04 19:19:27 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ typedef struct						s_symbol_info
 	uint8_t							pext;
 	uint8_t							type;
 	uint8_t							ext;
+	const struct mach_header_64		*m_header;
+	const t_info					*info;
 }									t_symbol_info;
 
 typedef struct						s_sect_data
@@ -74,5 +76,12 @@ typedef struct						s_sect_data
 	size_t							counter;
 	uint8_t							sect_val;
 }									t_sect_data;
+
+typedef struct						s_sort_symtab_val
+{
+	size_t							i;
+	size_t							j;
+	size_t							ref;
+}									t_sort_symtab_val;	
 
 #endif

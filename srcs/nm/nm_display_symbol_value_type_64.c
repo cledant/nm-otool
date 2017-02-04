@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 17:16:20 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/04 18:11:03 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/04 19:18:35 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	nm_display_symbol_value_type_64(const struct nlist_64 *data,
 {
 	t_symbol_info	sy_info;
 
-	nm_init_symbol_info(&sy_info, data[item].n_type);
+	nm_init_symbol_info(&sy_info, data[item].n_type, m_header, info);
 	if (sy_info.stab != 0)
 		return ;
 	else if (sy_info.pext == 1)
@@ -32,11 +32,12 @@ void	nm_display_symbol_value_type_64(const struct nlist_64 *data,
 	else if (sy_info.type == N_ABS && sy_info.ext == 0)
 		nm_print_absolute_64(MIN, data[item].n_value);
 	else if (sy_info.type == N_SECT && sy_info.ext == 1)
-		nm_print_sect_64(MAJ, data[item].n_value, data[item].n_sect, m_header, info);
+		nm_print_sect_64(MAJ, data[item].n_value, data[item].n_sect, &sy_info);
 	else if (sy_info.type == N_SECT && sy_info.ext == 0)
-		nm_print_sect_64(MIN, data[item].n_value, data[item].n_sect, m_header, info);
+		nm_print_sect_64(MIN, data[item].n_value, data[item].n_sect, &sy_info);
 	else if (sy_info.type == N_INDR)
-		nm_display_symbol_value_type_64(data, data[item].n_value, m_header, info);
+		nm_display_symbol_value_type_64(data, data[item].n_value, m_header,
+			info);
 	else
 		nm_print_unknown_64();
 }

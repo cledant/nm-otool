@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 12:24:44 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/04 13:04:32 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/04 19:05:41 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,41 +24,44 @@ static int		set_ref(char *used_tab, const size_t nb_elmt, size_t *ref)
 			*ref = i;
 			return (NM_OK);
 		}
-		i++;	
+		i++;
 	}
-	return (NM_FAIL);	
+	return (NM_FAIL);
+}
+
+static void		init_values(t_sort_symtab_val *val)
+{
+	val->i = 0;
+	val->j = 0;
+	val->ref = 0;
 }
 
 int				nm_sort_symtab(size_t *sort_tab, const uint32_t nb_elmt,
 					const char *tab, const struct nlist_64 *list)
 {
-	size_t	i;
-	size_t	j;
-	size_t	ref;
-	char	*used_tab;
+	t_sort_symtab_val	val;
+	char				*used_tab;
 
 	if ((used_tab = ft_memalloc(nb_elmt)) == NULL)
 		return (NM_FAIL);
-	i = 0;
-	j = 0;
-	ref = 0;
-	while (set_ref(used_tab, nb_elmt, &ref) == NM_OK && i < nb_elmt)
+	init_values(&val);
+	while (set_ref(used_tab, nb_elmt, &(val.ref)) == NM_OK && val.i < nb_elmt)
 	{
-		while (j < nb_elmt)
+		while (val.j < nb_elmt)
 		{
-			if (used_tab[j] == UNUSED && ft_strcmp(tab + list[ref].n_un.n_strx,
-				tab + list[j].n_un.n_strx) > 0)
+			if (used_tab[val.j] == UNUSED && ft_strcmp(tab +
+				list[val.ref].n_un.n_strx, tab + list[val.j].n_un.n_strx) > 0)
 			{
-				ref = j;
-				j = 0;
+				val.ref = val.j;
+				val.j = 0;
 			}
 			else
-				j++;
+				(val.j)++;
 		}
-		sort_tab[i] = ref;
-		used_tab[ref] = USED;
-		j = 0;
-		i++;
+		sort_tab[val.i] = val.ref;
+		used_tab[val.ref] = USED;
+		val.j = 0;
+		(val.i)++;
 	}
 	return (NM_OK);
 }

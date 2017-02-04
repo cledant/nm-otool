@@ -6,19 +6,18 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 19:21:19 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/04 18:20:04 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/04 19:24:02 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
 void	nm_print_sect_64(const int uc, const uint64_t value,
-			const uint8_t sect_val, const struct mach_header_64 *m_header,
-			const t_info *info)
+			const uint8_t sect_val, const t_symbol_info *si)
 {
 	char	disp;
 
-	disp = nm_get_sect_type_64(sect_val, m_header, info);
+	disp = nm_get_sect_type_64(sect_val, si->m_header, si->info);
 	nm_display_addr_64(value, "0123456789abcdef");
 	if (uc == MIN)
 	{

@@ -6,13 +6,20 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 12:33:33 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/03 11:31:21 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/04 19:11:12 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
-int		nm_error_handler(const t_error err)
+inline static int	next_error(const t_error err)
+{
+	if (err == ERR_SORT)
+		ft_putendl("ft_nm : error while sorting symbols");
+	return (NM_FAIL);
+}
+
+int					nm_error_handler(const t_error err)
 {
 	if (err == ERR_ARGC)
 		ft_putendl("ft_nm : argument number invalid");
@@ -38,7 +45,5 @@ int		nm_error_handler(const t_error err)
 		ft_putendl("ft_nm : error invalid archive");
 	else if (err == ERR_NO_A_OUT)
 		ft_putendl("ft_nm : a.out not found");
-	else if (err == ERR_SORT)
-		ft_putendl("ft_nm : error while sorting symbols");
-	return (NM_FAIL);
+	return (next_error(err));
 }
