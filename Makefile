@@ -6,7 +6,7 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2017/02/04 14:21:08 by cledant          ###   ########.fr        #
+#    Updated: 2017/02/04 19:41:12 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,8 @@ SRCS_NAME_NM = nm.c nm_start.c nm_error_handler.c nm_init_info.c \
 			   nm_init_fat_info.c nm_check_fat_arch_x86.c nm_fat_display_all.c \
 			   nm_fat_display_one.c nm_archive.c nm_get_long_name_size.c \
 			   nm_get_header_size.c nm_get_nb_item.c nm_archive_explore.c \
-			   nm_create_start_name.c nm_strnlen.c nm_get_sect_type_64.c
+			   nm_create_start_name.c nm_strnlen.c nm_get_sect_type_64.c \
+			   nm_print_error.c
 
 
 SRCS_PATH_NM = ./srcs/nm

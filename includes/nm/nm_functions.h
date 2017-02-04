@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 12:16:57 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/04 19:25:28 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/04 20:10:28 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int			nm_display_symtab_64(const struct mach_header_64 *start_macho,
 char		nm_get_sect_type_64(const uint8_t sect_val,
 				const struct mach_header_64 *m_header, const t_info *info);
 void		nm_display_symbol_value_type_64(const struct nlist_64 *data,
-				const size_t item, const struct mach_header_64 *m_header,
+				const t_item item, const struct mach_header_64 *m_header,
 				const t_info *info);
 void		nm_init_symbol_info(t_symbol_info *sy_info, const uint8_t val,
 				const struct mach_header_64 *m_header, const t_info *info);
@@ -52,6 +52,7 @@ void		nm_print_absolute_64(const int uc, const uint64_t value);
 void		nm_print_sect_64(const int uc, const uint64_t value,
 				const uint8_t sect_val, const t_symbol_info *si);
 void		nm_print_unknown_64(void);
+void		nm_print_error_64(void);
 void		nm_display_addr_64(const uint64_t num, const char *base);
 
 uint32_t	cvrt_u32(uint32_t num, const t_info *info);
