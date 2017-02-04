@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 22:29:34 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/03 22:33:49 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/04 22:13:41 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ int				nm_archive(const t_info *info,
 	if (nm_is_interval_valid((size_t)start_header, sizeof(struct ar_hdr),
 			info) == NM_FAIL)
 		return (nm_error_handler(ERR_INVALID_FILE));
-	ft_putstr("Archive : ");
-	ft_putendl(info->name);
 	if (ft_strncmp(start_header->ar_name, AR_EFMT1, 3) != 0)
 		return (NM_OK);
 	if ((ex_size = nm_get_long_name_size(start_header)) == 0)

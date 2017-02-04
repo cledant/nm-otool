@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 22:46:34 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/04 12:16:51 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/04 22:12:55 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,12 @@ static void		init_arch_loop(t_arch_loop *arch, const struct ar_hdr *first)
 	arch->start_name = NULL;
 }
 
+static void		disp_name(const char *name)
+{
+	ft_putstr(name);
+	ft_putendl(":");
+}
+
 int				nm_archive_explore(const struct ar_hdr *first,
 					const size_t nb_item, const t_info *info)
 {
@@ -49,11 +55,13 @@ int				nm_archive_explore(const struct ar_hdr *first,
 	init_arch_loop(&arch, first);
 	while (arch.i < nb_item)
 	{
+		ft_putchar('\n');
 		if (loop_check(&arch, info) != NM_OK)
 			return (NM_OK);
 		if ((arch.start_name = nm_create_start_name(arch.ptr, arch.ex_size,
 				info)) == NULL)
 			return (nm_error_handler(ERR_MEM));
+		disp_name(arch.start_name);
 		if (nm_start((void *)(arch.ptr) + sizeof(struct ar_hdr) +
 				arch.ex_size, arch.header_size - arch.ex_size, arch.start_name)
 				== NM_FAIL)

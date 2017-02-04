@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 12:45:32 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/03 22:28:45 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/04 22:57:28 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int				nm_start(const void *start_file, const off_t file_size,
 	else if (*(uint32_t *)start_file == MH_MAGIC || *(uint32_t *)start_file
 			== MH_CIGAM)
 		nm_macho_32(&info, (struct mach_header *)start_file);
-	if (*(uint32_t *)start_file == MH_MAGIC_64 || *(uint32_t *)start_file
+	else if (*(uint32_t *)start_file == MH_MAGIC_64 || *(uint32_t *)start_file
 			== MH_CIGAM_64)
 		nm_macho_64(&info, (struct mach_header_64 *)start_file);
 	else
