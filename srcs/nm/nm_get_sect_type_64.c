@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/04 14:15:49 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/04 18:55:48 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/06 16:39:17 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 static void		compare_text(t_sect_data *data, const struct section_64 *sec)
 {
-	if (ft_strncmp(sec->sectname, SECT_TEXT, ft_strlen(SECT_TEXT)) == 0)
+	if (ft_strncmp(sec->sectname, SECT_TEXT, 16) == 0)
 		data->type = 'T';
-	else if (ft_strncmp(sec->sectname, SECT_BSS, ft_strlen(SECT_BSS)) == 0)
+	else if (ft_strncmp(sec->sectname, SECT_BSS, 16) == 0)
 		data->type = 'B';
-	else if (ft_strncmp(sec->sectname, SECT_DATA, ft_strlen(SECT_DATA)) == 0)
+	else if (ft_strncmp(sec->sectname, SECT_DATA, 16) == 0)
 		data->type = 'D';
 	else
 		data->type = 'S';

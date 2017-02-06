@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 12:16:57 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/06 16:10:55 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/06 19:12:17 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void		nm_init_symbol_info_64(t_symbol_info_64 *sy_info, const uint8_t val,
 				const struct mach_header_64 *m_header, const t_info *info);
 int			nm_print_undefined_64(const int uc);
 int			nm_print_absolute_64(const int uc, const uint64_t value);
+int			nm_print_indirect_64(const int uc, const uint64_t value);
 int			nm_print_sect_64(const int uc, const uint64_t value,
 				const uint8_t sect_val, const t_symbol_info_64 *si);
 int			nm_print_unknown_64(void);
@@ -70,6 +71,7 @@ int			nm_init_symbol_info_32(t_symbol_info_32 *sy_info, const uint8_t val,
 				const struct mach_header *m_header, const t_info *info);
 int			nm_print_undefined_32(const int uc);
 int			nm_print_absolute_32(const int uc, const uint32_t value);
+int			nm_print_indirect_32(const int uc, const uint32_t value);
 int			nm_print_sect_32(const int uc, const uint32_t value,
 				const uint8_t sect_val, const t_symbol_info_32 *si);
 int			nm_print_unknown_32(void);
