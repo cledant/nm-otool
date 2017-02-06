@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 12:16:57 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/06 13:05:47 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/06 14:19:13 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ void		nm_set_endianness(t_info *info, const uint32_t *start_file);
 
 int			nm_is_string_tab_valid(const char *tab, const uint32_t size);
 size_t		*nm_new_size_t_tab(size_t size);
-int			nm_sort_symtab(size_t *sort_tab, const uint32_t nb_elmt,
-				const char *tab, const struct nlist_64 *list);
 
 int			nm_macho_64(const t_info *info,
 				const struct mach_header_64 *start_macho);
@@ -36,6 +34,8 @@ int			nm_check_symtab_64(const struct symtab_command *symtab,
 int			nm_display_symtab_64(const struct mach_header_64 *start_macho,
 				const struct symtab_command *symtab, const t_info *info,
 				const size_t *sort_tab);
+int			nm_sort_symtab_64(size_t *sort_tab, const uint32_t nb_elmt,
+				const char *tab, const struct nlist_64 *list);
 char		nm_get_sect_type_64(const uint8_t sect_val,
 				const struct mach_header_64 *m_header, const t_info *info);
 void		nm_display_symbol_value_type_64(const struct nlist_64 *data,
@@ -64,6 +64,8 @@ char		nm_get_sect_type_32(const uint8_t sect_val,
 void		nm_display_symbol_value_type_32(const struct nlist *data,
 				const t_item item, const struct mach_header *m_header,
 				const t_info *info);
+int			nm_sort_symtab_32(size_t *sort_tab, const uint32_t nb_elmt,
+				const char *tab, const struct nlist *list);
 void		nm_init_symbol_info_32(t_symbol_info_32 *sy_info, const uint8_t val,
 				const struct mach_header *m_header, const t_info *info);
 void		nm_print_undefined_32(const int uc);

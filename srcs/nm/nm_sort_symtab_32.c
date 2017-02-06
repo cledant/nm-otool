@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   nm_sort_symtab.c                                   :+:      :+:    :+:   */
+/*   nm_sort_symtab_32.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/03 12:24:44 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/06 11:14:31 by cledant          ###   ########.fr       */
+/*   Created: 2017/02/06 14:17:42 by cledant           #+#    #+#             */
+/*   Updated: 2017/02/06 14:17:59 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ static void		init_values(t_sort_symtab_val *val)
 	val->ref = 0;
 }
 
-int				nm_sort_symtab(size_t *sort_tab, const uint32_t nb_elmt,
-					const char *tab, const struct nlist_64 *list)
+int				nm_sort_symtab_32(size_t *sort_tab, const uint32_t nb_elmt,
+					const char *tab, const struct nlist *list)
 {
 	t_sort_symtab_val	val;
 	char				*used_tab;
