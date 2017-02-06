@@ -6,13 +6,13 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 13:00:11 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/06 13:03:01 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/06 16:08:27 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
-void	nm_print_sect_32(const int uc, const uint32_t value,
+int		nm_print_sect_32(const int uc, const uint32_t value,
 			const uint8_t sect_val, const t_symbol_info_32 *si)
 {
 	char	disp;
@@ -27,4 +27,5 @@ void	nm_print_sect_32(const int uc, const uint32_t value,
 	else
 		ft_putchar(disp);
 	ft_putchar(' ');
+	return (DISP);
 }

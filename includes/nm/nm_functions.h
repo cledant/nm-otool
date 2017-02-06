@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 12:16:57 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/06 15:23:26 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/06 16:10:55 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int			nm_sort_symtab_64(size_t *sort_tab, const uint32_t nb_elmt,
 				const char *tab, const struct nlist_64 *list);
 char		nm_get_sect_type_64(const uint8_t sect_val,
 				const struct mach_header_64 *m_header, const t_info *info);
-void		nm_display_symbol_value_type_64(const struct nlist_64 *data,
+int			nm_display_symbol_value_type_64(const struct nlist_64 *data,
 				const t_item item, const struct mach_header_64 *m_header,
 				const t_info *info);
 void		nm_init_symbol_info_64(t_symbol_info_64 *sy_info, const uint8_t val,
@@ -61,7 +61,7 @@ int			nm_display_symtab_32(const struct mach_header *start_macho,
 				const size_t *sort_tab);
 char		nm_get_sect_type_32(const uint8_t sect_val,
 				const struct mach_header *m_header, const t_info *info);
-void		nm_display_symbol_value_type_32(const struct nlist *data,
+int			nm_display_symbol_value_type_32(const struct nlist *data,
 				const t_item item, const struct mach_header *m_header,
 				const t_info *info);
 int			nm_sort_symtab_32(size_t *sort_tab, const uint32_t nb_elmt,

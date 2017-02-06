@@ -6,15 +6,16 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 12:58:11 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/06 12:58:13 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/06 16:07:57 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
-void	nm_print_error_64(void)
+int		nm_print_error_64(void)
 {
 	ft_putstr("                 ");
 	ft_putchar('E');
 	ft_putchar(' ');
+	return (DISP);
 }

@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 17:16:20 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/06 15:22:02 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/06 16:04:35 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		nm_display_symbol_value_type_64(const struct nlist_64 *data,
 	else if (sy_info.type == N_INDR)
 	{
 		if (data[item.cur].n_value > item.max)
-			nm_print_error_64();
+			return (nm_print_error_64());
 		new_item.max = item.max;
 		new_item.cur = data[item.cur].n_value;
 		return (nm_display_symbol_value_type_64(data,

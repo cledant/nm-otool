@@ -6,13 +6,13 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 12:51:57 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/06 12:52:41 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/06 16:09:01 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
-void	nm_print_undefined_32(const int uc)
+int		nm_print_undefined_32(const int uc)
 {
 	ft_putstr("         ");
 	if (uc == MIN)
@@ -20,4 +20,5 @@ void	nm_print_undefined_32(const int uc)
 	else
 		ft_putchar('U');
 	ft_putchar(' ');
+	return (DISP);
 }
