@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   nm_print_error.c                                   :+:      :+:    :+:   */
+/*   nm_print_unknown_32.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/04 19:40:43 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/04 20:11:16 by cledant          ###   ########.fr       */
+/*   Created: 2017/02/06 12:54:41 by cledant           #+#    #+#             */
+/*   Updated: 2017/02/06 12:55:00 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
-void	nm_print_error_64(void)
+void	nm_print_unknown_32(void)
 {
-	ft_putstr("                 ");
-	ft_putchar('E');
+	ft_putstr("         ");
+	ft_putchar('?');
 	ft_putchar(' ');
 }

@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 12:14:45 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/04 20:00:28 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/06 13:03:17 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,16 @@ typedef struct						s_nm_info_64
 	const size_t					*sort_tab;
 }									t_nm_info_64;
 
-typedef struct						s_symbol_info
+typedef struct						s_nm_info_32
+{
+	size_t							i;
+	const struct mach_header		*m_header;
+	const struct symtab_command		*symtab;
+	const t_info					*info;
+	const size_t					*sort_tab;
+}									t_nm_info_32;
+
+typedef struct						s_symbol_info_64
 {
 	uint8_t							stab;
 	uint8_t							pext;
@@ -68,7 +77,17 @@ typedef struct						s_symbol_info
 	uint8_t							ext;
 	const struct mach_header_64		*m_header;
 	const t_info					*info;
-}									t_symbol_info;
+}									t_symbol_info_64;
+
+typedef struct						s_symbol_info_32
+{
+	uint8_t							stab;
+	uint8_t							pext;
+	uint8_t							type;
+	uint8_t							ext;
+	const struct mach_header		*m_header;
+	const t_info					*info;
+}									t_symbol_info_32;
 
 typedef struct						s_sect_data
 {

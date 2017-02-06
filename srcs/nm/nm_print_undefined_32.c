@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   nm_print_sect_64.c                                 :+:      :+:    :+:   */
+/*   nm_print_undefined_32.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/03 19:21:19 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/06 13:03:10 by cledant          ###   ########.fr       */
+/*   Created: 2017/02/06 12:51:57 by cledant           #+#    #+#             */
+/*   Updated: 2017/02/06 12:52:41 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
-void	nm_print_sect_64(const int uc, const uint64_t value,
-			const uint8_t sect_val, const t_symbol_info_64 *si)
+void	nm_print_undefined_32(const int uc)
 {
-	char	disp;
-
-	disp = nm_get_sect_type_64(sect_val, si->m_header, si->info);
-	nm_display_addr_64(value, "0123456789abcdef");
+	ft_putstr("         ");
 	if (uc == MIN)
-	{
-		disp = ft_tolower(disp);
-		ft_putchar(disp);
-	}
+		ft_putchar('u');
 	else
-		ft_putchar(disp);
+		ft_putchar('U');
 	ft_putchar(' ');
 }

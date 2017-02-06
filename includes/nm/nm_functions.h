@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 12:16:57 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/04 20:10:28 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/06 13:05:47 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,38 @@ char		nm_get_sect_type_64(const uint8_t sect_val,
 void		nm_display_symbol_value_type_64(const struct nlist_64 *data,
 				const t_item item, const struct mach_header_64 *m_header,
 				const t_info *info);
-void		nm_init_symbol_info(t_symbol_info *sy_info, const uint8_t val,
+void		nm_init_symbol_info_64(t_symbol_info_64 *sy_info, const uint8_t val,
 				const struct mach_header_64 *m_header, const t_info *info);
-
-int			nm_macho_32(const t_info *info,
-				const struct mach_header *start_macho);
-
 void		nm_print_undefined_64(const int uc);
 void		nm_print_absolute_64(const int uc, const uint64_t value);
 void		nm_print_sect_64(const int uc, const uint64_t value,
-				const uint8_t sect_val, const t_symbol_info *si);
+				const uint8_t sect_val, const t_symbol_info_64 *si);
 void		nm_print_unknown_64(void);
 void		nm_print_error_64(void);
 void		nm_display_addr_64(const uint64_t num, const char *base);
+
+
+int			nm_macho_32(const t_info *info,
+				const struct mach_header *start_macho);
+int			nm_check_symtab_32(const struct symtab_command *symtab,
+				const t_info *info, const struct mach_header *start_macho);
+int			nm_display_symtab_32(const struct mach_header *start_macho,
+				const struct symtab_command *symtab, const t_info *info,
+				const size_t *sort_tab);
+char		nm_get_sect_type_32(const uint8_t sect_val,
+				const struct mach_header *m_header, const t_info *info);
+void		nm_display_symbol_value_type_32(const struct nlist *data,
+				const t_item item, const struct mach_header *m_header,
+				const t_info *info);
+void		nm_init_symbol_info_32(t_symbol_info_32 *sy_info, const uint8_t val,
+				const struct mach_header *m_header, const t_info *info);
+void		nm_print_undefined_32(const int uc);
+void		nm_print_absolute_32(const int uc, const uint32_t value);
+void		nm_print_sect_32(const int uc, const uint32_t value,
+				const uint8_t sect_val, const t_symbol_info_32 *si);
+void		nm_print_unknown_32(void);
+void		nm_print_error_32(void);
+void		nm_display_addr_32(const uint32_t num, const char *base);
 
 uint32_t	cvrt_u32(uint32_t num, const t_info *info);
 uint64_t	cvrt_u64(uint64_t num, const t_info *info);

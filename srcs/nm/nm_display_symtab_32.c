@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   nm_display_symtab_64.c                             :+:      :+:    :+:   */
+/*   nm_display_symtab_32.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/03 14:47:36 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/06 09:55:50 by cledant          ###   ########.fr       */
+/*   Created: 2017/02/06 11:25:51 by cledant           #+#    #+#             */
+/*   Updated: 2017/02/06 12:18:48 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
-inline static int		display_one_symtab(const t_nm_info_64 *info_64,
+inline static int		display_one_symtab(const t_nm_info_32 *info_32,
 							const t_info *info)
 {
-	struct nlist_64		*data;
+	struct nlist		*data;
 	char				*str;
 	t_item				item;
 
-	data = info_64->symtab->symoff + (void *)(info_64->m_header);
-	str = info_64->symtab->stroff + (void *)(info_64->m_header);
-	item.cur = info_64->sort_tab[info_64->i];
-	item.max = info_64->symtab->nsyms;
-	nm_display_symbol_value_type_64(data, item, info_64->m_header, info);
-	ft_putendl(str + data[info_64->sort_tab[info_64->i]].n_un.n_strx);
+	data = info_32->symtab->symoff + (void *)(info_32->m_header);
+	str = info_32->symtab->stroff + (void *)(info_32->m_header);
+	item.cur = info_32->sort_tab[info_32->i];
+	item.max = info_32->symtab->nsyms;
+	nm_display_symbol_value_type_32(data, item, info_32->m_header, info);
+	ft_putendl(str + data[info_32->sort_tab[info_32->i]].n_un.n_strx);
 	return (NM_OK);
 }
 
-int						nm_display_symtab_64(const struct mach_header_64
+int						nm_display_symtab_32(const struct mach_header
 							*start_macho, const struct symtab_command *symtab,
 							const t_info *info, const size_t *sort_tab)
 {
-	t_nm_info_64	nm_info;
+	t_nm_info_32	nm_info;
 
 	nm_info.i = 0;
 	nm_info.m_header = start_macho;

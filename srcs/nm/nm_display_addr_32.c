@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   nm_print_sect_64.c                                 :+:      :+:    :+:   */
+/*   nm_display_addr_64.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/03 19:21:19 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/06 13:03:10 by cledant          ###   ########.fr       */
+/*   Created: 2017/02/03 17:08:14 by cledant           #+#    #+#             */
+/*   Updated: 2017/02/06 12:50:41 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
-void	nm_print_sect_64(const int uc, const uint64_t value,
-			const uint8_t sect_val, const t_symbol_info_64 *si)
+void	nm_display_addr_32(const uint32_t num, const char *base)
 {
-	char	disp;
+	char			display[16];
+	size_t			size_base;
+	size_t			i;
+	uint32_t		cpy_num;
 
-	disp = nm_get_sect_type_64(sect_val, si->m_header, si->info);
-	nm_display_addr_64(value, "0123456789abcdef");
-	if (uc == MIN)
+	cpy_num = num;
+	if ((size_base = ft_strlen(base)) == 1)
+		return ;
+	ft_memset(display, '0', 16);
+	i = 0;
+	while (cpy_num != 0)
 	{
-		disp = ft_tolower(disp);
-		ft_putchar(disp);
+		display[i] = base[cpy_num % size_base];
+		cpy_num /= size_base;
+		i++;
 	}
-	else
-		ft_putchar(disp);
+	i = 0;
+	while (i < 8)
+	{
+		ft_putchar(display[7 - i]);
+		i++;
+	}
 	ft_putchar(' ');
 }

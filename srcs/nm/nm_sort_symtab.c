@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 12:24:44 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/04 19:05:41 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/06 11:14:31 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,6 @@ int				nm_sort_symtab(size_t *sort_tab, const uint32_t nb_elmt,
 		val.j = 0;
 		(val.i)++;
 	}
+	free(used_tab);
 	return (NM_OK);
 }
