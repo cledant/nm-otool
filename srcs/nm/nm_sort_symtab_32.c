@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 14:17:42 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/07 15:31:47 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/07 16:28:25 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,12 @@ static int		set_ref(char *used_tab, const size_t nb_elmt, size_t *ref)
 	return (NM_FAIL);
 }
 
-static void		init_values(t_sort_symtab_val *val)
+static int		init_values(t_sort_symtab_val *val)
 {
 	val->i = 0;
 	val->j = 0;
 	val->ref = 0;
+	return (1);
 }
 
 int				nm_sort_symtab_32(size_t *sort_tab, const uint32_t nb_elmt,

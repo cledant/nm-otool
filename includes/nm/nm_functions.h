@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 12:16:57 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/07 15:17:11 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/07 16:26:15 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int			nm_print_sect_64(const int uc, const uint64_t value,
 				const uint8_t sect_val, const t_symbol_info_64 *si);
 int			nm_print_unknown_64(void);
 int			nm_print_error_64(void);
-int			nm_display_addr_64(const uint64_t num, const char *base);
+void		nm_display_addr_64(const uint64_t num, const char *base);
 int			nm_macho_32(const t_info *info,
 				const struct mach_header *start_macho);
 int			nm_check_symtab_32(const struct symtab_command *symtab,
@@ -64,7 +64,7 @@ int			nm_display_symbol_value_type_32(const struct nlist *data,
 				const t_info *info);
 int			nm_sort_symtab_32(size_t *sort_tab, const uint32_t nb_elmt,
 				const char *tab, const struct nlist *list);
-int			nm_init_symbol_info_32(t_symbol_info_32 *sy_info, const uint8_t val,
+void		nm_init_symbol_info_32(t_symbol_info_32 *sy_info, const uint8_t val,
 				const struct mach_header *m_header, const t_info *info);
 int			nm_print_undefined_32(const int uc);
 int			nm_print_absolute_32(const int uc, const uint32_t value);
@@ -74,7 +74,7 @@ int			nm_print_sect_32(const int uc, const uint32_t value,
 				const uint8_t sect_val, const t_symbol_info_32 *si);
 int			nm_print_unknown_32(void);
 int			nm_print_error_32(void);
-int			nm_display_addr_32(const uint32_t num, const char *base);
+void		nm_display_addr_32(const uint32_t num, const char *base);
 uint32_t	cvrt_u32(uint32_t num, const t_info *info);
 uint64_t	cvrt_u64(uint64_t num, const t_info *info);
 int			nm_fat_arch(const t_info *info,
