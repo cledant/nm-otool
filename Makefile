@@ -68,7 +68,8 @@ SRCS_NAME_NM = nm.c nm_start.c nm_error_handler.c nm_init_info.c \
 			   nm_display_addr_32.c nm_print_undefined_32.c \
 			   nm_print_absolute_32.c nm_print_sect_32.c nm_print_unknown_32.c \
 			   nm_print_error_32.c nm_get_sect_type_32.c nm_sort_symtab_32.c \
-			   nm_print_indirect_32.c nm_print_indirect_64.c
+			   nm_print_indirect_32.c nm_print_indirect_64.c \
+			   nm_print_common_32.c nm_print_common_64.c
 
 SRCS_PATH_NM = ./srcs/nm
 
