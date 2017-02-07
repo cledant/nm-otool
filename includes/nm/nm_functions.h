@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 12:16:57 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/06 19:12:17 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/07 15:17:11 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,8 @@ void		nm_init_info(t_info *info, const void *ptr, const off_t size,
 int			nm_is_interval_valid(const size_t addr, const size_t size,
 				const t_info *info);
 void		nm_set_endianness(t_info *info, const uint32_t *start_file);
-
 int			nm_is_string_tab_valid(const char *tab, const uint32_t size);
 size_t		*nm_new_size_t_tab(size_t size);
-
 int			nm_macho_64(const t_info *info,
 				const struct mach_header_64 *start_macho);
 int			nm_check_symtab_64(const struct symtab_command *symtab,
@@ -52,8 +50,6 @@ int			nm_print_sect_64(const int uc, const uint64_t value,
 int			nm_print_unknown_64(void);
 int			nm_print_error_64(void);
 int			nm_display_addr_64(const uint64_t num, const char *base);
-
-
 int			nm_macho_32(const t_info *info,
 				const struct mach_header *start_macho);
 int			nm_check_symtab_32(const struct symtab_command *symtab,
@@ -79,10 +75,8 @@ int			nm_print_sect_32(const int uc, const uint32_t value,
 int			nm_print_unknown_32(void);
 int			nm_print_error_32(void);
 int			nm_display_addr_32(const uint32_t num, const char *base);
-
 uint32_t	cvrt_u32(uint32_t num, const t_info *info);
 uint64_t	cvrt_u64(uint64_t num, const t_info *info);
-
 int			nm_fat_arch(const t_info *info,
 				const struct fat_header *start_file);
 void		nm_init_fat_info(t_fat_info *fat_info);
@@ -94,7 +88,6 @@ int			nm_fat_display_all(const t_info *info,
 				const struct fat_header *start_file);
 int			nm_fat_display_one(const struct fat_header *start_file,
 				const t_fat_info *fat_info, const t_info *info);
-
 int			nm_archive(const t_info *info,
 				const struct ar_hdr *start_header);
 size_t		nm_get_long_name_size(const struct ar_hdr *start_header);
@@ -102,8 +95,8 @@ size_t		nm_get_header_size(const struct ar_hdr *start_header);
 size_t		nm_get_nb_item(const int *start_header);
 int			nm_archive_explore(const struct ar_hdr *first,
 				const size_t nb_item, const t_info *info);
-char		*nm_create_start_name(const struct ar_hdr *ar_hdr, const size_t size,
-				const t_info *info);
+char		*nm_create_start_name(const struct ar_hdr *ar_hdr,
+				const size_t size, const t_info *info);
 size_t		nm_strnlen(const char *s, size_t len);
 
 #endif

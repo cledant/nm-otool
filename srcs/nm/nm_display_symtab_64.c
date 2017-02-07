@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 14:47:36 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/06 16:03:39 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/07 15:18:46 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ inline static int		display_one_symtab(const t_nm_info_64 *info_64,
 	str = info_64->symtab->stroff + (void *)(info_64->m_header);
 	item.cur = info_64->sort_tab[info_64->i];
 	item.max = info_64->symtab->nsyms;
-	if(nm_display_symbol_value_type_64(data, item, info_64->m_header, info)
+	if (nm_display_symbol_value_type_64(data, item, info_64->m_header, info)
 			== DISP)
 		ft_putendl(str + data[info_64->sort_tab[info_64->i]].n_un.n_strx);
 	return (NM_OK);

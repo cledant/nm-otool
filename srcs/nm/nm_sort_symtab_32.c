@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 14:17:42 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/06 14:17:59 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/07 15:31:47 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,8 @@ int				nm_sort_symtab_32(size_t *sort_tab, const uint32_t nb_elmt,
 	t_sort_symtab_val	val;
 	char				*used_tab;
 
-	if ((used_tab = ft_memalloc(nb_elmt)) == NULL)
+	if (init_values(&val) != 1 || (used_tab = ft_memalloc(nb_elmt)) == NULL)
 		return (NM_FAIL);
-	init_values(&val);
 	while (set_ref(used_tab, nb_elmt, &(val.ref)) == NM_OK && val.i < nb_elmt)
 	{
 		while (val.j < nb_elmt)

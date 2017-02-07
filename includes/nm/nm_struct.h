@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 12:14:45 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/06 13:03:17 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/07 15:15:26 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ typedef struct						s_sort_symtab_val
 	size_t							i;
 	size_t							j;
 	size_t							ref;
-}									t_sort_symtab_val;	
+}									t_sort_symtab_val;
 
 typedef struct						s_item
 {

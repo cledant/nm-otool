@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 12:16:22 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/02 12:16:23 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/07 15:15:11 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,5 @@
 # include <mach-o/fat.h>
 # include <mach-o/ranlib.h>
 # include "libft.h"
-
-#include <stdio.h> //caca
 
 #endif
