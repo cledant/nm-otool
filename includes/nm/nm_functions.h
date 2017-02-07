@@ -46,6 +46,7 @@ void		nm_init_symbol_info_64(t_symbol_info_64 *sy_info, const uint8_t val,
 int			nm_print_undefined_64(const int uc);
 int			nm_print_absolute_64(const int uc, const uint64_t value);
 int			nm_print_indirect_64(const int uc, const uint64_t value);
+int			nm_print_common_64(const uint64_t value);
 int			nm_print_sect_64(const int uc, const uint64_t value,
 				const uint8_t sect_val, const t_symbol_info_64 *si);
 int			nm_print_unknown_64(void);
@@ -72,6 +73,7 @@ int			nm_init_symbol_info_32(t_symbol_info_32 *sy_info, const uint8_t val,
 int			nm_print_undefined_32(const int uc);
 int			nm_print_absolute_32(const int uc, const uint32_t value);
 int			nm_print_indirect_32(const int uc, const uint32_t value);
+int			nm_print_common_32(const uint32_t value);
 int			nm_print_sect_32(const int uc, const uint32_t value,
 				const uint8_t sect_val, const t_symbol_info_32 *si);
 int			nm_print_unknown_32(void);

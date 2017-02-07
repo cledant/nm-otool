@@ -21,6 +21,9 @@ int		nm_display_symbol_value_type_64(const struct nlist_64 *data,
 	nm_init_symbol_info_64(&sy_info, data[item.cur].n_type, m_header, info);
 	if (sy_info.stab != 0)
 		return (NO_DISP);
+	else if (sy_info.type = N_UNDF && sy_info.ext == 1 &&
+			data[item.cur].n_value != 0)
+		return (nm_print_common_64(data[item.cur].n_value));
 	else if (sy_info.pext == 1 && sy_info.type == N_UNDF)
 		return (nm_print_undefined_64(MIN));
 	else if (sy_info.type == N_UNDF || sy_info.type == N_PBUD)
