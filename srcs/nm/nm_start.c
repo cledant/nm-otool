@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 12:45:32 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/04 22:57:28 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/08 10:55:11 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int		unknown_case(t_info *info)
 }
 
 int				nm_start(const void *start_file, const off_t file_size,
-					const char *arg)
+					const char *arg, const int argc)
 {
 	t_info	info;
 
@@ -33,15 +33,15 @@ int				nm_start(const void *start_file, const off_t file_size,
 		return (nm_error_handler(ERR_MEM));
 	if ((*(uint32_t *)start_file == FAT_MAGIC || *(uint32_t *)start_file
 			== FAT_CIGAM))
-		nm_fat_arch(&info, (struct fat_header *)start_file);
+		nm_fat_arch(&info, (struct fat_header *)start_file, argc);
 	else if (ft_strncmp(start_file, ARMAG, 8) == 0)
 		nm_archive(&info, (void *)start_file + 8);
 	else if (*(uint32_t *)start_file == MH_MAGIC || *(uint32_t *)start_file
 			== MH_CIGAM)
-		nm_macho_32(&info, (struct mach_header *)start_file);
+		nm_macho_32(&info, (struct mach_header *)start_file, argc);
 	else if (*(uint32_t *)start_file == MH_MAGIC_64 || *(uint32_t *)start_file
 			== MH_CIGAM_64)
-		nm_macho_64(&info, (struct mach_header_64 *)start_file);
+		nm_macho_64(&info, (struct mach_header_64 *)start_file, argc);
 	else
 		return (unknown_case(&info));
 	if (info.name != NULL)

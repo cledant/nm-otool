@@ -6,14 +6,14 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 22:18:14 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/03 22:20:02 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/08 11:12:05 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
 int		nm_fat_display_all(const t_info *info,
-			const struct fat_header *start_file)
+			const struct fat_header *start_file, const int argc)
 {
 	uint32_t			i;
 	struct fat_arch		*fat;
@@ -32,7 +32,7 @@ int		nm_fat_display_all(const t_info *info,
 				info), cvrt_u32(fat->size, info), info) == NM_FAIL)
 			return (nm_error_handler(ERR_INVALID_FILE));
 		if (nm_start((void *)start_file + cvrt_u32(fat->offset, info),
-				cvrt_u32(fat->size, info), info->arg) != NM_OK)
+				cvrt_u32(fat->size, info), info->arg, argc) != NM_OK)
 			return (NM_FAIL);
 		i++;
 		fat = (void *)fat + sizeof(struct fat_arch);

@@ -6,14 +6,14 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 22:07:14 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/03 22:24:37 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/08 11:09:26 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
 int		nm_fat_arch(const t_info *info,
-			const struct fat_header *start_file)
+			const struct fat_header *start_file, const int argc)
 {
 	t_fat_info		fat_info;
 
@@ -26,8 +26,8 @@ int		nm_fat_arch(const t_info *info,
 			return (NM_FAIL);
 	}
 	if (fat_info.cpu == CPU_TYPE_ANY)
-		nm_fat_display_all(info, start_file);
+		nm_fat_display_all(info, start_file, argc);
 	else
-		nm_fat_display_one(start_file, &fat_info, info);
+		nm_fat_display_one(start_file, &fat_info, info, argc);
 	return (NM_OK);
 }

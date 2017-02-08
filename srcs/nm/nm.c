@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 12:07:11 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/06 10:45:18 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/08 10:55:26 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int		no_file_nm(void)
 	if ((ptr = mmap(NULL, file_stat.st_size, PROT_READ, MAP_PRIVATE, fd, 0))
 			== MAP_FAILED)
 		return (close_routine(ERR_MMAP, fd));
-	nm_start(ptr, file_stat.st_size, "a.out");
+	nm_start(ptr, file_stat.st_size, "a.out", 2);
 	if (munmap(ptr, file_stat.st_size) == -1)
 		return (nm_error_handler(ERR_MUNMAP));
 	if (close(fd) == -1)
@@ -41,7 +41,7 @@ static int		no_file_nm(void)
 	return (NM_OK);
 }
 
-static int		single_file_nm(const int i, char **argv)
+static int		single_file_nm(const int i, char **argv, const int argc)
 {
 	int				fd;
 	void			*ptr;
@@ -56,7 +56,7 @@ static int		single_file_nm(const int i, char **argv)
 	if ((ptr = mmap(NULL, file_stat.st_size, PROT_READ, MAP_PRIVATE, fd, 0))
 			== MAP_FAILED)
 		return (close_routine(ERR_MMAP, fd));
-	nm_start(ptr, file_stat.st_size, argv[i]);
+	nm_start(ptr, file_stat.st_size, argv[i], argc);
 	if (munmap(ptr, file_stat.st_size) == -1)
 		return (close_routine(ERR_MUNMAP, fd));
 	if (close(fd) == -1)
@@ -75,7 +75,7 @@ int				main(int argc, char **argv)
 	{
 		while (i < argc)
 		{
-			single_file_nm(i, argv);
+			single_file_nm(i, argv, argc);
 			i++;
 		}
 	}

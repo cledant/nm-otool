@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   nm_fat_display_one.c                               :+:      :+:    :+:   */
+/*   nm_print_macho_name.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/03 22:27:05 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/08 11:10:45 by cledant          ###   ########.fr       */
+/*   Created: 2017/02/08 11:05:18 by cledant           #+#    #+#             */
+/*   Updated: 2017/02/08 11:05:24 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nm.h"
 
-int		nm_fat_display_one(const struct fat_header *start_file,
-			const t_fat_info *fat_info, const t_info *info, const int argc)
+void		nm_print_macho_name(const char *arg)
 {
-	if (nm_is_interval_valid((size_t)start_file + fat_info->offset,
-			fat_info->size, info) == NM_FAIL)
-		return (nm_error_handler(ERR_INVALID_FILE));
-	nm_start((void *)start_file + fat_info->offset, fat_info->size,
-		info->arg, argc);
-	return (NM_OK);
+	ft_putchar('\n');
+	ft_putstr(arg);
+	ft_putendl(":");
 }

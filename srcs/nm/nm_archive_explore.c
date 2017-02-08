@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 22:46:34 by cledant           #+#    #+#             */
-/*   Updated: 2017/02/06 16:48:38 by cledant          ###   ########.fr       */
+/*   Updated: 2017/02/08 11:16:51 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ int				nm_archive_explore(const struct ar_hdr *first,
 			return (nm_error_handler(ERR_MEM));
 		disp_name(arch.start_name);
 		if (nm_start((void *)(arch.ptr) + sizeof(struct ar_hdr) +
-				arch.ex_size, arch.header_size - arch.ex_size, arch.start_name)
-				== NM_FAIL)
+				arch.ex_size, arch.header_size - arch.ex_size,
+				arch.start_name, 2) == NM_FAIL)
 		{
 			ft_strdel(&(arch.start_name));
 			return (NM_OK);
